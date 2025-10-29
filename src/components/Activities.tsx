@@ -30,7 +30,7 @@ const activities = [
     participants: 8,
     category: "cultural",
     image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWF8Y2VyZW1vbnklMjBqcGFufGVufDF8fHx8MTc2MTExMDkyN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/flagged/photo-1565080636132-56952ee2861c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VEVBJTIwQ0VSRU1PTll8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=900",
     description:
       "Experience authentic Japanese culture with a local tea master",
     isLocal: true,
@@ -59,7 +59,7 @@ const activities = [
     participants: 15,
     category: "adventure",
     image:
-      "https://images.unsplash.com/photo-1464822759844-d150f39b8b26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMGhpa2UlMjBzd2lzcyUyMGFscHN8ZW58MXx8fHwxNzYxMTEwOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://plus.unsplash.com/premium_photo-1677002240252-af3f88114efc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2625",
     description: "Watch the sunrise from a breathtaking mountain peak",
     isLocal: false,
   },

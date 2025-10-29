@@ -83,7 +83,7 @@ const amenityIcons: Record<string, React.ReactNode> = {
 
 export default function Accommodation({ onNavigate }: AccommodationProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-600 p-4 md:p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-linear-to-br from-cyan-500 via-blue-500 to-indigo-600 p-4 md:p-8 relative overflow-hidden">
       <Navigation onNavigate={onNavigate} currentPage="accommodation" />
 
       {/* Animated background elements */}

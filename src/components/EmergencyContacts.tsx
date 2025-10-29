@@ -12,13 +12,8 @@ import {
   Shield,
   Ambulance,
   AlertTriangle,
-  Users,
   Share2,
   Zap,
-  Stethoscope,
-  Scale,
-  Plane,
-  UserCheck,
 } from "lucide-react";
 
 interface EmergencyContactsProps {
@@ -36,16 +31,6 @@ interface Contact {
   notes: string;
   isFavorite: boolean;
   lastContacted?: Date;
-}
-
-interface MedicalInfo {
-  bloodType: string;
-  allergies: string;
-  medications: string;
-  conditions: string;
-  emergencyContact: string;
-  insuranceProvider: string;
-  policyNumber: string;
 }
 
 interface EmergencyService {
@@ -101,52 +86,10 @@ const emergencyServices: EmergencyService[] = [
   },
 ];
 
-const contactCategories = [
-  {
-    value: "family",
-    label: "Family",
-    icon: <Users className="w-4 h-4" />,
-    color: "bg-blue-100 text-blue-800",
-  },
-  {
-    value: "medical",
-    label: "Medical",
-    icon: <Stethoscope className="w-4 h-4" />,
-    color: "bg-red-100 text-red-800",
-  },
-  {
-    value: "legal",
-    label: "Legal",
-    icon: <Scale className="w-4 h-4" />,
-    color: "bg-purple-100 text-purple-800",
-  },
-  {
-    value: "travel",
-    label: "Travel",
-    icon: <Plane className="w-4 h-4" />,
-    color: "bg-green-100 text-green-800",
-  },
-  {
-    value: "other",
-    label: "Other",
-    icon: <UserCheck className="w-4 h-4" />,
-    color: "bg-gray-100 text-gray-800",
-  },
-];
-
 export default function EmergencyContacts({
   onNavigate,
 }: EmergencyContactsProps) {
   const [contacts, setContacts] = useState<Contact[]>([]);
-  const [medicalInfo, setMedicalInfo] = useState<MedicalInfo>({
-    bloodType: "",
-    allergies: "",
-    medications: "",
-    conditions: "",
-    emergencyContact: "",
-    insuranceProvider: "",
-    policyNumber: "",
-  });
   const [newContact, setNewContact] = useState({
     name: "",
     relationship: "",
@@ -156,8 +99,6 @@ export default function EmergencyContacts({
     address: "",
     notes: "",
   });
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [showQuickDial, setShowQuickDial] = useState(false);
   const [locationShared, setLocationShared] = useState(false);
 
@@ -190,36 +131,6 @@ export default function EmergencyContacts({
     setLocationShared(true);
     setTimeout(() => setLocationShared(false), 5000);
   };
-
-  const toggleFavorite = (id: string) => {
-    setContacts(
-      contacts.map((contact) =>
-        contact.id === id
-          ? { ...contact, isFavorite: !contact.isFavorite }
-          : contact
-      )
-    );
-  };
-
-  const callContact = (phone: string) => {
-    window.open(`tel:${phone}`, "_self");
-  };
-
-  const filteredContacts = contacts.filter((contact) => {
-    const matchesSearch =
-      contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      contact.phone.includes(searchTerm) ||
-      contact.email.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory =
-      selectedCategory === "all" || contact.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
-
-  const favoriteContacts = contacts.filter((contact) => contact.isFavorite);
-  const completionRate =
-    contacts.length > 0
-      ? (contacts.filter((c) => c.isFavorite).length / contacts.length) * 100
-      : 0;
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-indigo-900">

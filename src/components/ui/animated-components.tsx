@@ -46,12 +46,10 @@ export function AnimatedButton({
   children,
   onClick,
   className = "",
-  variant = "default",
 }: {
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
-  variant?: "default" | "outline" | "ghost";
 }) {
   const baseClasses =
     "transition-all duration-200 hover:scale-105 active:scale-95 focus:scale-95";
