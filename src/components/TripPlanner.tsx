@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -22,6 +22,7 @@ import {
   Shield,
 } from "lucide-react";
 import Navigation from "./Navigation";
+import { createStaggeredDelays } from "../lib/animations";
 
 interface TripPlannerProps {
   onNavigate: (page: string) => void;
@@ -30,6 +31,91 @@ interface TripPlannerProps {
 export default function TripPlanner({ onNavigate }: TripPlannerProps) {
   const [destination, setDestination] = useState("");
   const [tripType, setTripType] = useState("");
+  const [showCards, setShowCards] = useState(false);
+
+  // Staggered animation delays for action cards
+  const cardDelays = createStaggeredDelays(9, 100);
+
+  useEffect(() => {
+    // Trigger staggered animation after component mounts
+    const timer = setTimeout(() => setShowCards(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const actionCards = [
+    {
+      id: "accommodation",
+      title: "Find Accommodation",
+      description: "Discover hotels, resorts, and unique stays",
+      icon: MapPin,
+      gradient: "from-blue-500 to-cyan-500",
+      onClick: () => onNavigate("accommodation"),
+    },
+    {
+      id: "activities",
+      title: "Discover Activities",
+      description: "Find authentic local experiences and attractions",
+      icon: MapPin,
+      gradient: "from-purple-500 to-pink-500",
+      onClick: () => onNavigate("activities"),
+    },
+    {
+      id: "wardrobe",
+      title: "Plan Your Wardrobe",
+      description: "Weather-based packing recommendations",
+      icon: CalendarIcon,
+      gradient: "from-orange-500 to-red-500",
+      onClick: () => onNavigate("wardrobe"),
+    },
+    {
+      id: "itinerary",
+      title: "Create Itinerary",
+      description: "Organize your daily schedule and activities",
+      icon: CalendarIcon,
+      gradient: "from-green-500 to-emerald-500",
+      onClick: () => onNavigate("itinerary"),
+    },
+    {
+      id: "weather",
+      title: "Check Weather",
+      description: "Get weather forecasts for your destination",
+      icon: Cloud,
+      gradient: "from-cyan-500 to-blue-500",
+      onClick: () => onNavigate("weather"),
+    },
+    {
+      id: "currency",
+      title: "Currency Exchange",
+      description: "Convert currencies and plan expenses",
+      icon: DollarSign,
+      gradient: "from-yellow-500 to-orange-500",
+      onClick: () => onNavigate("currency"),
+    },
+    {
+      id: "budget",
+      title: "Budget Calculator",
+      description: "Track expenses and stay within budget",
+      icon: TrendingUp,
+      gradient: "from-red-500 to-pink-500",
+      onClick: () => onNavigate("budget"),
+    },
+    {
+      id: "packing",
+      title: "Packing List",
+      description: "Never forget anything on your trip",
+      icon: Package,
+      gradient: "from-indigo-500 to-purple-500",
+      onClick: () => onNavigate("packing"),
+    },
+    {
+      id: "emergency",
+      title: "Emergency Contacts",
+      description: "Keep important contacts for safety",
+      icon: Shield,
+      gradient: "from-red-600 to-rose-600",
+      onClick: () => onNavigate("emergency"),
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 p-4 md:p-8 relative overflow-hidden">
@@ -168,7 +254,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
                   />
                 </div>
 
-                <Button className="w-full bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
+                <Button className="w-full bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-purple-500/25">
                   Generate Trip Plan
                 </Button>
               </div>
@@ -177,194 +263,41 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
 
           {/* Quick Actions */}
           <div className="space-y-6">
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("accommodation")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-blue-500 to-cyan-500 rounded-xl">
-                    <Plane className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Find Accommodation
-                    </h3>
-                    <p className="text-gray-600">
-                      Browse hotels, apartments, and unique stays
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("activities")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Discover Activities
-                    </h3>
-                    <p className="text-gray-600">
-                      Find authentic local experiences and attractions
-                    </p>
+            {actionCards.map((card, index) => {
+              const IconComponent = card.icon;
+              return (
+                <div
+                  key={card.id}
+                  className={`backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-3xl hover:shadow-white/20 active:scale-95 ${
+                    showCards
+                      ? "animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+                      : "opacity-0"
+                  }`}
+                  style={{
+                    animationDelay: showCards
+                      ? `${cardDelays[index]}ms`
+                      : "0ms",
+                  }}
+                  onClick={card.onClick}
+                >
+                  <div className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`p-3 bg-linear-to-br ${card.gradient} rounded-xl transition-transform duration-300 hover:scale-110`}
+                      >
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-gray-900 text-lg font-semibold mb-1">
+                          {card.title}
+                        </h3>
+                        <p className="text-gray-600">{card.description}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("wardrobe")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-orange-500 to-red-500 rounded-xl">
-                    <CalendarIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Plan Your Wardrobe
-                    </h3>
-                    <p className="text-gray-600">
-                      Weather-based packing recommendations
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("itinerary")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-green-500 to-emerald-500 rounded-xl">
-                    <CalendarIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Create Itinerary
-                    </h3>
-                    <p className="text-gray-600">
-                      Organize your daily schedule and activities
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("weather")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-cyan-500 to-blue-500 rounded-xl">
-                    <Cloud className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Check Weather
-                    </h3>
-                    <p className="text-gray-600">
-                      Get weather forecasts for your destination
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("currency")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-yellow-500 to-orange-500 rounded-xl">
-                    <DollarSign className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Currency Exchange
-                    </h3>
-                    <p className="text-gray-600">
-                      Convert currencies and plan expenses
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("budget")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-red-500 to-pink-500 rounded-xl">
-                    <TrendingUp className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Budget Calculator
-                    </h3>
-                    <p className="text-gray-600">
-                      Track expenses and stay within budget
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("packing")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-indigo-500 to-purple-500 rounded-xl">
-                    <Package className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Packing List
-                    </h3>
-                    <p className="text-gray-600">
-                      Never forget anything on your trip
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
-              onClick={() => onNavigate("emergency")}
-            >
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-linear-to-br from-red-600 to-rose-600 rounded-xl">
-                    <Shield className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
-                      Emergency Contacts
-                    </h3>
-                    <p className="text-gray-600">
-                      Keep important contacts for safety
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

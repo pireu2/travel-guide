@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Navigation from "./Navigation";
+import { createStaggeredDelays } from "../lib/animations";
 
 interface ActivitiesProps {
   onNavigate: (page: string) => void;
@@ -28,7 +30,7 @@ const activities = [
     participants: 8,
     category: "cultural",
     image:
-      "https://images.unsplash.com/photo-1593684044226-bf7d27456209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZXhwbG9yYXRpb24lMjB0cmF2ZWx8ZW58MXx8fHwxNzYxMTEwOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWF8Y2VyZW1vbnklMjBqcGFufGVufDF8fHx8MTc2MTExMDkyN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     description:
       "Experience authentic Japanese culture with a local tea master",
     isLocal: true,
@@ -43,7 +45,7 @@ const activities = [
     participants: 12,
     category: "food",
     image:
-      "https://images.unsplash.com/photo-1593684044226-bf7d27456209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZXhwbG9yYXRpb24lMjB0cmF2ZWx8ZW58MXx8fHwxNzYxMTEwOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHJlZXQlMjBmb29kJTIwdGhhaWxhbmR8ZW58MXx8fHwxNzYxMTEwOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     description: "Taste authentic Thai dishes at hidden local gems",
     isLocal: true,
   },
@@ -57,7 +59,7 @@ const activities = [
     participants: 15,
     category: "adventure",
     image:
-      "https://images.unsplash.com/photo-1742201514090-5a173b9477ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMGFkdmVudHVyZSUyMHRyYXZlbHxlbnwxfHx8fDE3NjExMTA5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/photo-1464822759844-d150f39b8b26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMGhpa2UlMjBzd2lzcyUyMGFscHN8ZW58MXx8fHwxNzYxMTEwOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     description: "Watch the sunrise from a breathtaking mountain peak",
     isLocal: false,
   },
@@ -71,7 +73,7 @@ const activities = [
     participants: 20,
     category: "cultural",
     image:
-      "https://images.unsplash.com/photo-1593684044226-bf7d27456209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZXhwbG9yYXRpb24lMjB0cmF2ZWx8ZW58MXx8fHwxNzYxMTEwOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNvcnIlMjB3YXQlMjB0ZW1wbGV8ZW58MXx8fHwxNzYxMTEwOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     description: "Explore ancient ruins with an expert archaeologist",
     isLocal: true,
   },
@@ -85,7 +87,7 @@ const activities = [
     participants: 10,
     category: "food",
     image:
-      "https://images.unsplash.com/photo-1593684044226-bf7d27456209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZXhwbG9yYXRpb24lMjB0cmF2ZWx8ZW58MXx8fHwxNzYxMTEwOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb29raW5nJTIwY2xhc3MlMjBpdGFseXxlbnwxfHx8fDE3NjExMTA5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     description: "Learn traditional Italian recipes from a local family",
     isLocal: true,
   },
@@ -99,7 +101,7 @@ const activities = [
     participants: 8,
     category: "adventure",
     image:
-      "https://images.unsplash.com/photo-1604294731121-8bb3d4133971?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGJlYWNoJTIwdHJhdmVsfGVufDF8fHx8MTc2MTExMDkyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJ0JTIwZGl2aW5nJTIwcmVlZnxlbnwxfHx8fDE3NjExMTA5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     description: "Discover underwater wonders with certified instructors",
     isLocal: false,
   },
@@ -112,6 +114,18 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Activities({ onNavigate }: ActivitiesProps) {
+  const [showCards, setShowCards] = useState(false);
+  const [activeTab, setActiveTab] = useState("all");
+
+  // Staggered animation delays for activity cards
+  const cardDelays = createStaggeredDelays(6, 100); // Assuming max 6 cards per row
+
+  useEffect(() => {
+    // Trigger staggered animation after component mounts
+    const timer = setTimeout(() => setShowCards(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-600 p-4 md:p-8 relative overflow-hidden">
       <Navigation onNavigate={onNavigate} currentPage="activities" />
@@ -150,7 +164,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
         </div>
 
         {/* Tabs */}
-        <Tabs defaultValue="all" className="mb-8">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
           <div className="backdrop-blur-3xl bg-white/90 rounded-2xl border border-white/60 p-2 mb-6 shadow-2xl shadow-white/15 ring-1 ring-white/25">
             <TabsList className="bg-transparent w-full justify-start gap-2">
               <TabsTrigger
@@ -188,10 +202,19 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
 
           <TabsContent value="all" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {activities.map((activity) => (
+              {activities.map((activity, index) => (
                 <div
                   key={activity.id}
-                  className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
+                  className={`backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-3xl hover:shadow-white/20 active:scale-95 rounded-2xl ${
+                    showCards
+                      ? "animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+                      : "opacity-0"
+                  }`}
+                  style={{
+                    animationDelay: showCards
+                      ? `${cardDelays[index % cardDelays.length]}ms`
+                      : "0ms",
+                  }}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <ImageWithFallback
@@ -248,7 +271,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
                       <span className="text-gray-500"> / person</span>
                     </div>
 
-                    <Button className="w-full bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
+                    <Button className="w-full bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-emerald-500/25">
                       Book Experience
                     </Button>
                   </div>
@@ -559,21 +582,21 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
             <Button
               onClick={() => onNavigate("planner")}
               variant="outline"
-              className="border-gray-300 text-gray-700 hover:bg-gray-50"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95"
             >
               Trip Planner
             </Button>
             <Button
               onClick={() => onNavigate("accommodation")}
               variant="outline"
-              className="border-gray-300 text-gray-700 hover:bg-gray-50"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95"
             >
               Accommodation
             </Button>
             <Button
               onClick={() => onNavigate("itinerary")}
               variant="outline"
-              className="border-gray-300 text-gray-700 hover:bg-gray-50"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95"
             >
               Create Itinerary
             </Button>

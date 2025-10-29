@@ -10,10 +10,7 @@ import {
   Calculator,
   Package,
   Shield,
-  Menu,
-  X,
 } from "lucide-react";
-import { useState } from "react";
 
 interface NavigationProps {
   onNavigate: (page: string) => void;
@@ -93,12 +90,6 @@ export default function Navigation({
   onNavigate,
   currentPage,
 }: NavigationProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
     <>
       {/* Desktop Navigation */}
@@ -127,66 +118,24 @@ export default function Navigation({
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
-      <nav className="md:hidden fixed top-4 right-4 z-50">
-        <Button
-          onClick={toggleMobileMenu}
-          variant="outline"
-          size="sm"
-          className="backdrop-blur-3xl bg-white/90 border-white/50 text-gray-900 hover:bg-white/60 shadow-2xl shadow-white/10 ring-1 ring-white/20"
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-4 h-4" />
-          ) : (
-            <Menu className="w-4 h-4" />
-          )}
-        </Button>
-
-        {isMobileMenuOpen && (
-          <div className="absolute top-12 right-0 backdrop-blur-3xl bg-white/90 border border-white/50 rounded-2xl shadow-2xl shadow-white/10 p-4 min-w-64 ring-1 ring-white/20">
-            <div className="grid grid-cols-2 gap-2">
-              {navigationItems.map((item) => (
-                <Button
-                  key={item.id}
-                  onClick={() => {
-                    onNavigate(item.id);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  variant={currentPage === item.id ? "default" : "ghost"}
-                  size="sm"
-                  className={`flex items-center gap-2 justify-start transition-all duration-200 ${
-                    currentPage === item.id
-                      ? `${item.color} text-white shadow-lg hover:shadow-xl ring-2 ring-white/30`
-                      : "text-gray-900 hover:bg-white/60 hover:text-gray-900 backdrop-blur-sm"
-                  }`}
-                >
-                  {item.icon}
-                  <span className="text-sm font-medium">{item.label}</span>
-                </Button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* Mobile Bottom Navigation for Quick Access */}
-      <nav className="md:hidden fixed bottom-4 left-4 right-4 z-50">
-        <div className="backdrop-blur-3xl bg-white/90 border border-white/50 rounded-2xl shadow-2xl shadow-white/10 p-3 ring-1 ring-white/20">
-          <div className="flex items-center justify-around">
-            {navigationItems.slice(0, 6).map((item) => (
+      {/* Mobile Top Navigation */}
+      <nav className="md:hidden fixed top-4 left-4 right-4 z-50">
+        <div className="backdrop-blur-3xl bg-white/95 border border-white/50 rounded-2xl shadow-2xl shadow-white/10 p-2 ring-1 ring-white/20">
+          <div className="flex items-center justify-around overflow-x-auto scrollbar-hide gap-1 px-2">
+            {navigationItems.map((item) => (
               <Button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
                 variant="ghost"
                 size="sm"
-                className={`flex flex-col items-center gap-1 p-2 transition-all duration-200 ${
+                className={`flex flex-col items-center gap-1 p-2 min-w-0 shrink-0 transition-all duration-200 ${
                   currentPage === item.id
                     ? `${item.color} text-white rounded-xl shadow-lg hover:shadow-xl ring-2 ring-white/30`
                     : "text-gray-900 hover:bg-white/60 hover:text-gray-900 backdrop-blur-sm"
                 }`}
               >
                 {item.icon}
-                <span className="text-xs font-medium">
+                <span className="text-xs font-medium truncate max-w-16">
                   {item.label.split(" ")[0]}
                 </span>
               </Button>
