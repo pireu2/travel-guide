@@ -227,7 +227,7 @@ export default function CurrencyConverter({
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-8 shadow-2xl">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -268,7 +268,7 @@ export default function CurrencyConverter({
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 backdrop-blur-2xl bg-white/95 border border-white/30 mb-6">
+          <TabsList className="grid w-full grid-cols-4 backdrop-blur-3xl bg-white/90 border border-white/30 mb-6">
             <TabsTrigger
               value="convert"
               className="text-gray-700 data-[state=active]:bg-blue-100 data-[state=active]:text-blue-900"
@@ -298,7 +298,7 @@ export default function CurrencyConverter({
           <TabsContent value="convert" className="space-y-6">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               {/* Main Converter */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2 mb-2">
                     <Calculator className="w-5 h-5" />
@@ -422,7 +422,7 @@ export default function CurrencyConverter({
               </div>
 
               {/* Quick Conversions */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold mb-2">
                     Quick Conversions
@@ -457,7 +457,7 @@ export default function CurrencyConverter({
           </TabsContent>
 
           <TabsContent value="rates" className="space-y-6">
-            <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
               <div className="mb-6">
                 <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2 mb-2">
                   <BarChart3 className="w-5 h-5" />
@@ -533,7 +533,7 @@ export default function CurrencyConverter({
           </TabsContent>
 
           <TabsContent value="history" className="space-y-6">
-            <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
               <div className="mb-6">
                 <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2 mb-2">
                   <Clock className="w-5 h-5" />
@@ -589,7 +589,7 @@ export default function CurrencyConverter({
           </TabsContent>
 
           <TabsContent value="favorites" className="space-y-6">
-            <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
               <div className="mb-6">
                 <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2 mb-2">
                   <Star className="w-5 h-5" />
@@ -642,7 +642,7 @@ export default function CurrencyConverter({
 
         <br />
         {/* Travel Tips */}
-        <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+        <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
           <h3 className="text-gray-900 text-xl font-semibold mb-6">
             Money-Saving Tips
           </h3>

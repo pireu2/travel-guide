@@ -544,7 +544,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-8 shadow-2xl">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -576,7 +576,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 backdrop-blur-2xl bg-white/95 border border-white/30 mb-6">
+          <TabsList className="grid w-full grid-cols-4 backdrop-blur-3xl bg-white/90 border border-white/30 mb-6">
             <TabsTrigger
               value="list"
               className="text-gray-700 data-[state=active]:bg-purple-100 data-[state=active]:text-purple-900"
@@ -606,7 +606,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
           <TabsContent value="list" className="space-y-6">
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
               {/* Filters and Search */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                     <Filter className="w-5 h-5" />
@@ -683,7 +683,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
               </div>
 
               {/* Add Item */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                     <Plus className="w-5 h-5" />
@@ -784,7 +784,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
               </div>
 
               {/* Quick Stats */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                     <Target className="w-5 h-5" />
@@ -849,7 +849,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
                 return (
                   <div
                     key={category}
-                    className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl"
+                    className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl"
                   >
                     <div className="mb-6">
                       <div className="flex items-center justify-between">
@@ -938,7 +938,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
           <TabsContent value="progress" className="space-y-6">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               {/* Overall Progress */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                     <Target className="w-5 h-5" />
@@ -980,7 +980,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
               </div>
 
               {/* Category Progress */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                     <Package className="w-5 h-5" />
@@ -1029,7 +1029,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
           </TabsContent>
 
           <TabsContent value="templates" className="space-y-6">
-            <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
               <div className="mb-6">
                 <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                   <FileText className="w-5 h-5" />
@@ -1100,7 +1100,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
           </TabsContent>
 
           <TabsContent value="weather" className="space-y-6">
-            <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
               <div className="mb-6">
                 <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                   <Cloud className="w-5 h-5" />
@@ -1203,7 +1203,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
         </Tabs>
 
         {/* Packing Tips */}
-        <div className="mt-6 backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+        <div className="mt-6 backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
           <div className="mb-6">
             <h3 className="text-gray-900 text-lg font-semibold">
               Smart Packing Tips

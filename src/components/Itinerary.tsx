@@ -177,7 +177,7 @@ export default function Itinerary({ onNavigate }: ItineraryProps) {
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/60 p-8 shadow-2xl shadow-white/15 ring-1 ring-white/25">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -207,7 +207,7 @@ export default function Itinerary({ onNavigate }: ItineraryProps) {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Day Selector Sidebar */}
           <div className="lg:col-span-1">
-            <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl sticky top-8 rounded-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 sticky top-8 rounded-2xl">
               <div className="p-6">
                 <h3 className="text-gray-900 text-xl font-semibold mb-2">
                   Trip Days
@@ -286,7 +286,7 @@ export default function Itinerary({ onNavigate }: ItineraryProps) {
 
           {/* Daily Schedule */}
           <div className="lg:col-span-3">
-            <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-2xl">
               <div className="p-6">
                 <h3 className="text-gray-900 text-xl font-semibold mb-2">
                   Day {selectedDay} Schedule
@@ -374,7 +374,7 @@ export default function Itinerary({ onNavigate }: ItineraryProps) {
 
             {/* Summary Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-              <div className="backdrop-blur-2xl bg-white/95 border border-white/30 rounded-2xl p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 border border-white/60 rounded-2xl p-6 shadow-2xl shadow-white/15 ring-1 ring-white/25">
                 <div className="pb-3">
                   <p className="text-gray-600 mb-1">Total Activities</p>
                   <h4 className="text-gray-900 text-3xl font-bold">
@@ -386,7 +386,7 @@ export default function Itinerary({ onNavigate }: ItineraryProps) {
                 </div>
               </div>
 
-              <div className="backdrop-blur-2xl bg-white/95 border border-white/30 rounded-2xl p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 border border-white/60 rounded-2xl p-6 shadow-2xl shadow-white/15 ring-1 ring-white/25">
                 <div className="pb-3">
                   <p className="text-gray-600 mb-1">Meals Planned</p>
                   <h4 className="text-gray-900 text-3xl font-bold">
@@ -399,7 +399,7 @@ export default function Itinerary({ onNavigate }: ItineraryProps) {
                 </div>
               </div>
 
-              <div className="backdrop-blur-2xl bg-white/95 border border-white/30 rounded-2xl p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 border border-white/60 rounded-2xl p-6 shadow-2xl shadow-white/15 ring-1 ring-white/25">
                 <div className="pb-3">
                   <p className="text-gray-600 mb-1">Start Time</p>
                   <h4 className="text-gray-900 text-3xl font-bold">
@@ -415,7 +415,7 @@ export default function Itinerary({ onNavigate }: ItineraryProps) {
         </div>
 
         {/* Navigation */}
-        <div className="backdrop-blur-2xl bg-white/95 rounded-2xl border border-white/30 p-6 mt-8 shadow-2xl">
+        <div className="backdrop-blur-3xl bg-white/90 rounded-2xl border border-white/60 p-6 mt-8 shadow-2xl shadow-white/15 ring-1 ring-white/25">
           <h3 className="text-gray-900 mb-4 font-semibold">Plan More</h3>
           <div className="flex flex-wrap gap-3">
             <Button

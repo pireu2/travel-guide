@@ -252,7 +252,7 @@ export default function BudgetCalculator({
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-8 shadow-2xl">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -284,7 +284,7 @@ export default function BudgetCalculator({
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 backdrop-blur-2xl bg-white/95 border border-white/30 mb-6">
+          <TabsList className="grid w-full grid-cols-4 backdrop-blur-3xl bg-white/90 border border-white/30 mb-6">
             <TabsTrigger
               value="overview"
               className="text-gray-700 data-[state=active]:bg-blue-100 data-[state=active]:text-blue-900"
@@ -314,7 +314,7 @@ export default function BudgetCalculator({
           <TabsContent value="overview" className="space-y-6">
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
               {/* Budget Overview */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2 mb-2">
                     <Target className="w-5 h-5" />
@@ -389,7 +389,7 @@ export default function BudgetCalculator({
               </div>
 
               {/* Quick Add Expense */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2 mb-2">
                     <Plus className="w-5 h-5" />
@@ -480,7 +480,7 @@ export default function BudgetCalculator({
               </div>
 
               {/* Category Breakdown */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2 mb-2">
                     <PieChart className="w-5 h-5" />
@@ -529,7 +529,7 @@ export default function BudgetCalculator({
           </TabsContent>
 
           <TabsContent value="expenses" className="space-y-6">
-            <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
               <div className="mb-6">
                 <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                   <Receipt className="w-5 h-5" />
@@ -602,7 +602,7 @@ export default function BudgetCalculator({
           <TabsContent value="analytics" className="space-y-6">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               {/* Spending by Category */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                     <BarChart3 className="w-5 h-5" />
@@ -652,7 +652,7 @@ export default function BudgetCalculator({
               </div>
 
               {/* Daily Spending */}
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="mb-6">
                   <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                     <TrendingUp className="w-5 h-5" />
@@ -692,7 +692,7 @@ export default function BudgetCalculator({
           </TabsContent>
 
           <TabsContent value="templates" className="space-y-6">
-            <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+            <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
               <div className="mb-6">
                 <h3 className="text-gray-900 text-lg font-semibold flex items-center gap-2">
                   <FileText className="w-5 h-5" />
@@ -751,7 +751,7 @@ export default function BudgetCalculator({
         </Tabs>
 
         {/* Budget Tips */}
-        <div className="mt-6 backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+        <div className="mt-6 backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
           <div className="mb-6">
             <h3 className="text-gray-900 text-lg font-semibold">
               Money-Saving Tips

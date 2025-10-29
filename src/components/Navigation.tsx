@@ -103,7 +103,7 @@ export default function Navigation({
     <>
       {/* Desktop Navigation */}
       <nav className="hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="backdrop-blur-2xl bg-white/95 rounded-full border border-white/30 shadow-2xl px-6 py-3">
+        <div className="backdrop-blur-3xl bg-white/90 border border-white/50 shadow-2xl shadow-white/10 rounded-full px-6 py-3 ring-1 ring-white/20">
           <div className="flex items-center gap-2">
             {navigationItems.map((item) => (
               <Button
@@ -113,8 +113,8 @@ export default function Navigation({
                 size="sm"
                 className={`flex items-center gap-2 transition-all duration-200 ${
                   currentPage === item.id
-                    ? `${item.color} text-white shadow-lg hover:shadow-xl`
-                    : "text-gray-900 hover:bg-gray-100 hover:text-gray-900"
+                    ? `${item.color} text-white shadow-lg hover:shadow-xl ring-2 ring-white/30`
+                    : "text-gray-900 hover:bg-white/60 hover:text-gray-900 backdrop-blur-sm"
                 }`}
               >
                 {item.icon}
@@ -133,7 +133,7 @@ export default function Navigation({
           onClick={toggleMobileMenu}
           variant="outline"
           size="sm"
-          className="backdrop-blur-2xl bg-white/95 border-white/30 text-gray-900 hover:bg-gray-100"
+          className="backdrop-blur-3xl bg-white/90 border-white/50 text-gray-900 hover:bg-white/60 shadow-2xl shadow-white/10 ring-1 ring-white/20"
         >
           {isMobileMenuOpen ? (
             <X className="w-4 h-4" />
@@ -143,7 +143,7 @@ export default function Navigation({
         </Button>
 
         {isMobileMenuOpen && (
-          <div className="absolute top-12 right-0 backdrop-blur-2xl bg-white/95 border border-white/30 rounded-2xl shadow-2xl p-4 min-w-64">
+          <div className="absolute top-12 right-0 backdrop-blur-3xl bg-white/90 border border-white/50 rounded-2xl shadow-2xl shadow-white/10 p-4 min-w-64 ring-1 ring-white/20">
             <div className="grid grid-cols-2 gap-2">
               {navigationItems.map((item) => (
                 <Button
@@ -156,8 +156,8 @@ export default function Navigation({
                   size="sm"
                   className={`flex items-center gap-2 justify-start transition-all duration-200 ${
                     currentPage === item.id
-                      ? `${item.color} text-white shadow-lg`
-                      : "text-gray-900 hover:bg-gray-100"
+                      ? `${item.color} text-white shadow-lg hover:shadow-xl ring-2 ring-white/30`
+                      : "text-gray-900 hover:bg-white/60 hover:text-gray-900 backdrop-blur-sm"
                   }`}
                 >
                   {item.icon}
@@ -171,7 +171,7 @@ export default function Navigation({
 
       {/* Mobile Bottom Navigation for Quick Access */}
       <nav className="md:hidden fixed bottom-4 left-4 right-4 z-50">
-        <div className="backdrop-blur-2xl bg-white/95 border border-white/30 rounded-2xl shadow-2xl p-3">
+        <div className="backdrop-blur-3xl bg-white/90 border border-white/50 rounded-2xl shadow-2xl shadow-white/10 p-3 ring-1 ring-white/20">
           <div className="flex items-center justify-around">
             {navigationItems.slice(0, 6).map((item) => (
               <Button
@@ -181,8 +181,8 @@ export default function Navigation({
                 size="sm"
                 className={`flex flex-col items-center gap-1 p-2 transition-all duration-200 ${
                   currentPage === item.id
-                    ? `${item.color} text-white rounded-xl`
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? `${item.color} text-white rounded-xl shadow-lg hover:shadow-xl ring-2 ring-white/30`
+                    : "text-gray-900 hover:bg-white/60 hover:text-gray-900 backdrop-blur-sm"
                 }`}
               >
                 {item.icon}

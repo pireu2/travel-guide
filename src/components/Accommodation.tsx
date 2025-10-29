@@ -96,7 +96,7 @@ export default function Accommodation({ onNavigate }: AccommodationProps) {
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/60 p-8 shadow-2xl shadow-white/15 ring-1 ring-white/25">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -120,7 +120,7 @@ export default function Accommodation({ onNavigate }: AccommodationProps) {
         </div>
 
         {/* Filters */}
-        <div className="backdrop-blur-2xl bg-white/95 rounded-2xl border border-white/30 p-6 mb-8 shadow-2xl">
+        <div className="backdrop-blur-3xl bg-white/90 rounded-2xl border border-white/60 p-6 mb-8 shadow-2xl shadow-white/15 ring-1 ring-white/25">
           <div className="flex flex-wrap gap-3">
             <Badge className="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 cursor-pointer">
               All
@@ -157,7 +157,7 @@ export default function Accommodation({ onNavigate }: AccommodationProps) {
           {accommodations.map((place) => (
             <div
               key={place.id}
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
             >
               <div className="relative h-48 overflow-hidden">
                 <ImageWithFallback
@@ -228,7 +228,7 @@ export default function Accommodation({ onNavigate }: AccommodationProps) {
         </div>
 
         {/* Navigation to other sections */}
-        <div className="backdrop-blur-2xl bg-white/95 rounded-2xl border border-white/30 p-6 shadow-2xl">
+        <div className="backdrop-blur-3xl bg-white/90 rounded-2xl border border-white/60 p-6 shadow-2xl shadow-white/15 ring-1 ring-white/25">
           <h3 className="text-gray-900 mb-4 font-semibold">
             Continue Planning
           </h3>

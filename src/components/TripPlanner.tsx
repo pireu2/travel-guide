@@ -45,7 +45,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
       <div className="max-w-6xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-8 shadow-2xl">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -70,7 +70,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Planning Form */}
-          <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl">
+          <div className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl">
             <div className="p-6">
               <h3 className="text-gray-900 text-xl font-semibold mb-2">
                 Trip Details
@@ -178,7 +178,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
           {/* Quick Actions */}
           <div className="space-y-6">
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("accommodation")}
             >
               <div className="p-6">
@@ -199,7 +199,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("activities")}
             >
               <div className="p-6">
@@ -220,7 +220,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("wardrobe")}
             >
               <div className="p-6">
@@ -241,7 +241,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("itinerary")}
             >
               <div className="p-6">
@@ -262,7 +262,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("weather")}
             >
               <div className="p-6">
@@ -283,7 +283,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("currency")}
             >
               <div className="p-6">
@@ -304,7 +304,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("budget")}
             >
               <div className="p-6">
@@ -325,7 +325,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("packing")}
             >
               <div className="p-6">
@@ -346,7 +346,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
             </div>
 
             <div
-              className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
+              className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl hover:shadow-3xl transition-all cursor-pointer hover:scale-[1.02]"
               onClick={() => onNavigate("emergency")}
             >
               <div className="p-6">

@@ -229,7 +229,7 @@ export default function EmergencyContacts({
         {/* Header */}
         <br />
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-3xl p-6 md:p-8">
+          <div className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-3xl p-6 md:p-8">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -274,7 +274,7 @@ export default function EmergencyContacts({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Add Contact */}
-          <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl overflow-hidden">
+          <div className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-2xl overflow-hidden">
             <div className="p-6">
               <h3 className="text-gray-900 text-lg font-semibold mb-2">
                 Add Emergency Contact
@@ -360,7 +360,7 @@ export default function EmergencyContacts({
           </div>
 
           {/* Emergency Services */}
-          <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl overflow-hidden">
+          <div className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-2xl overflow-hidden">
             <div className="p-6">
               <h3 className="text-gray-900 text-lg font-semibold mb-2">
                 Emergency Services
@@ -411,7 +411,7 @@ export default function EmergencyContacts({
         </div>
 
         {/* Contacts List */}
-        <div className="mt-6 backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl overflow-hidden">
+        <div className="mt-6 backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-2xl overflow-hidden">
           <div className="p-6">
             <h3 className="text-gray-900 text-lg font-semibold mb-2">
               Your Emergency Contacts
@@ -486,7 +486,7 @@ export default function EmergencyContacts({
         </div>
 
         {/* Travel Safety Tips */}
-        <div className="mt-6 backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl overflow-hidden">
+        <div className="mt-6 backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-2xl overflow-hidden">
           <div className="p-6">
             <h3 className="text-gray-900 text-lg font-semibold mb-4">
               Travel Safety Tips

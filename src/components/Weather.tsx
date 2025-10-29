@@ -225,7 +225,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-8 shadow-2xl">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -278,7 +278,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
 
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
           {/* Location Input & Favorites */}
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl xl:col-span-1">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl xl:col-span-1">
             <div className="mb-4">
               <h3 className="text-gray-900 text-lg font-semibold mb-2">
                 Location
@@ -349,7 +349,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
                 onValueChange={setActiveTab}
                 className="w-full"
               >
-                <TabsList className="grid w-full grid-cols-4 backdrop-blur-2xl bg-white/95 border border-white/30">
+                <TabsList className="grid w-full grid-cols-4 backdrop-blur-3xl bg-white/90 border border-white/30">
                   <TabsTrigger
                     value="current"
                     className="text-gray-700 data-[state=active]:bg-blue-100 data-[state=active]:text-blue-900"
@@ -378,7 +378,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
 
                 <TabsContent value="current" className="space-y-6">
                   {/* Current Weather */}
-                  <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+                  <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="p-3 bg-blue-100 rounded-2xl">
                         {getWeatherIcon(weatherData.current.condition, "lg")}
@@ -481,7 +481,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
                 </TabsContent>
 
                 <TabsContent value="forecast" className="space-y-6">
-                  <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+                  <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                     <h3 className="text-gray-900 text-xl font-semibold mb-2">
                       5-Day Forecast
                     </h3>
@@ -521,7 +521,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
 
                 <TabsContent value="details" className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+                    <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                       <h3 className="text-gray-900 text-lg font-semibold mb-4">
                         Additional Details
                       </h3>
@@ -558,7 +558,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
                       </div>
                     </div>
 
-                    <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+                    <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                       <h3 className="text-gray-900 text-lg font-semibold mb-2">
                         Weather Map
                       </h3>
@@ -577,7 +577,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
                 </TabsContent>
 
                 <TabsContent value="history" className="space-y-6">
-                  <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+                  <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                     <h3 className="text-gray-900 text-lg font-semibold mb-2">
                       Historical Weather
                     </h3>
@@ -604,7 +604,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
                 </TabsContent>
               </Tabs>
             ) : (
-              <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+              <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
                 <div className="flex items-center justify-center h-64">
                   <div className="text-center text-gray-500">
                     <Cloud className="w-16 h-16 mx-auto mb-4" />
@@ -621,7 +621,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
 
         {/* Enhanced Travel Tips */}
         {weatherData && (
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-6 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/30 p-6 shadow-2xl">
             <h3 className="text-gray-900 text-xl font-semibold mb-6">
               Travel Tips
             </h3>

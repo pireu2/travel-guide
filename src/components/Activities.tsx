@@ -126,7 +126,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-3xl border border-white/60 p-8 shadow-2xl shadow-white/15 ring-1 ring-white/25">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-gray-900 text-4xl font-bold mb-2">
@@ -151,7 +151,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
 
         {/* Tabs */}
         <Tabs defaultValue="all" className="mb-8">
-          <div className="backdrop-blur-2xl bg-white/95 rounded-2xl border border-white/30 p-2 mb-6 shadow-2xl">
+          <div className="backdrop-blur-3xl bg-white/90 rounded-2xl border border-white/60 p-2 mb-6 shadow-2xl shadow-white/15 ring-1 ring-white/25">
             <TabsList className="bg-transparent w-full justify-start gap-2">
               <TabsTrigger
                 value="all"
@@ -191,7 +191,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
               {activities.map((activity) => (
                 <div
                   key={activity.id}
-                  className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
+                  className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <ImageWithFallback
@@ -264,7 +264,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
                 .map((activity) => (
                   <div
                     key={activity.id}
-                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
+                    className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -333,7 +333,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
                 .map((activity) => (
                   <div
                     key={activity.id}
-                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
+                    className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -408,7 +408,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
                 .map((activity) => (
                   <div
                     key={activity.id}
-                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
+                    className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -483,7 +483,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
                 .map((activity) => (
                   <div
                     key={activity.id}
-                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
+                    className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -553,7 +553,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
         </Tabs>
 
         {/* Navigation */}
-        <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl p-6">
+        <div className="backdrop-blur-3xl bg-white/90 border border-white/60 shadow-2xl shadow-white/15 ring-1 ring-white/25 rounded-2xl p-6">
           <h3 className="text-gray-900 mb-4">Continue Planning</h3>
           <div className="flex flex-wrap gap-3">
             <Button
