@@ -1,15 +1,7 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 import { Badge } from "./ui/badge";
 import {
-  ArrowLeft,
   Cloud,
   CloudRain,
   Sun,
@@ -25,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import Navigation from "./Navigation";
 
 interface WardrobePlannerProps {
   onNavigate: (page: string) => void;
@@ -112,14 +105,9 @@ const wardrobeItems = {
   ],
 };
 
-export default function WardrobePlanner({
-  onNavigate,
-}: WardrobePlannerProps) {
-  const [selectedWeather, setSelectedWeather] =
-    useState<string>("mild");
-  const [packedItems, setPackedItems] = useState<Set<string>>(
-    new Set(),
-  );
+export default function WardrobePlanner({ onNavigate }: WardrobePlannerProps) {
+  const [selectedWeather, setSelectedWeather] = useState<string>("mild");
+  const [packedItems, setPackedItems] = useState<Set<string>>(new Set());
 
   const togglePacked = (item: string) => {
     const newPacked = new Set(packedItems);
@@ -132,145 +120,161 @@ export default function WardrobePlanner({
   };
 
   const currentItems =
-    wardrobeItems[
-      selectedWeather as keyof typeof wardrobeItems
-    ] || wardrobeItems.mild;
+    wardrobeItems[selectedWeather as keyof typeof wardrobeItems] ||
+    wardrobeItems.mild;
   const packedCount = currentItems.filter((i) =>
-    packedItems.has(i.item),
+    packedItems.has(i.item)
   ).length;
-  const essentialCount = currentItems.filter(
-    (i) => i.essential,
-  ).length;
+  const essentialCount = currentItems.filter((i) => i.essential).length;
   const packedEssentialCount = currentItems.filter(
-    (i) => i.essential && packedItems.has(i.item),
+    (i) => i.essential && packedItems.has(i.item)
   ).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 p-4 md:p-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-linear-to-br from-orange-500 via-red-500 to-pink-600 p-4 md:p-8 relative overflow-hidden">
+      <Navigation onNavigate={onNavigate} currentPage="wardrobe" />
+
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-orange-300/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-red-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl animate-pulse delay-500" />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <Button
-            onClick={() => onNavigate("home")}
-            variant="ghost"
-            className="text-white hover:bg-white/10 mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Button>
-
-          <div className="backdrop-blur-xl bg-white/10 rounded-3xl border border-white/20 p-6 md:p-8">
-            <div className="flex items-center gap-3 mb-2">
-              <Shirt className="w-8 h-8 text-white" />
-              <h1 className="text-white">Wardrobe Planner</h1>
+          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <Shirt className="w-8 h-8 text-orange-600" />
+                  <h1 className="text-gray-900 text-4xl font-bold">
+                    Wardrobe Planner
+                  </h1>
+                </div>
+                <p className="text-gray-700 text-lg">
+                  Pack smart based on weather and local customs
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Badge
+                  variant="secondary"
+                  className="bg-orange-100 text-orange-800 border-orange-200"
+                >
+                  <Shirt className="w-4 h-4 mr-1" />
+                  Packing Assistant
+                </Badge>
+              </div>
             </div>
-            <p className="text-white/80">
-              Pack smart based on weather and local customs
-            </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Weather Selection */}
           <div className="lg:col-span-1">
-            <Card className="backdrop-blur-xl bg-white/95 border-white/20 shadow-2xl sticky top-8">
-              <CardHeader>
-                <CardTitle>Destination Weather</CardTitle>
-                <CardDescription>
+            <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl sticky top-8 rounded-2xl">
+              <div className="p-6">
+                <h3 className="text-gray-900 text-xl font-semibold mb-2">
+                  Destination Weather
+                </h3>
+                <p className="text-gray-600 mb-6">
                   Select the weather conditions
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Select
-                  value={selectedWeather}
-                  onValueChange={setSelectedWeather}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select weather" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {weatherConditions.map((weather) => (
-                      <SelectItem
-                        key={weather.value}
-                        value={weather.value}
-                      >
-                        <div className="flex items-center gap-2">
-                          {weather.icon}
-                          <div>
-                            <div>{weather.label}</div>
-                            <div className="text-muted-foreground">
-                              {weather.temp}
+                </p>
+
+                <div className="space-y-4">
+                  <Select
+                    value={selectedWeather}
+                    onValueChange={setSelectedWeather}
+                  >
+                    <SelectTrigger className="border-gray-300">
+                      <SelectValue placeholder="Select weather" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {weatherConditions.map((weather) => (
+                        <SelectItem key={weather.value} value={weather.value}>
+                          <div className="flex items-center gap-2">
+                            {weather.icon}
+                            <div>
+                              <div>{weather.label}</div>
+                              <div className="text-gray-500">
+                                {weather.temp}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
 
-                <div className="space-y-3 pt-4 border-t">
-                  <h4>Packing Progress</h4>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Overall</span>
-                      <span>
-                        {packedCount} / {currentItems.length}
-                      </span>
+                  <div className="space-y-3 pt-4 border-t border-gray-200">
+                    <h4 className="text-gray-900 font-medium">
+                      Packing Progress
+                    </h4>
+                    <div className="space-y-2">
+                      <div className="flex justify-between">
+                        <span className="text-gray-700">Overall</span>
+                        <span className="text-gray-900 font-medium">
+                          {packedCount} / {currentItems.length}
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className="bg-linear-to-r from-orange-500 to-pink-500 h-2 rounded-full transition-all"
+                          style={{
+                            width: `${
+                              (packedCount / currentItems.length) * 100
+                            }%`,
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="w-full bg-secondary rounded-full h-2">
-                      <div
-                        className="bg-gradient-to-r from-orange-500 to-pink-500 h-2 rounded-full transition-all"
-                        style={{
-                          width: `${(packedCount / currentItems.length) * 100}%`,
-                        }}
-                      />
+
+                    <div className="space-y-2">
+                      <div className="flex justify-between">
+                        <span className="text-gray-700">Essentials</span>
+                        <span className="text-gray-900 font-medium">
+                          {packedEssentialCount} / {essentialCount}
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className="bg-linear-to-r from-green-500 to-emerald-500 h-2 rounded-full transition-all"
+                          style={{
+                            width: `${
+                              (packedEssentialCount / essentialCount) * 100
+                            }%`,
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Essentials</span>
-                      <span>
-                        {packedEssentialCount} /{" "}
-                        {essentialCount}
-                      </span>
-                    </div>
-                    <div className="w-full bg-secondary rounded-full h-2">
-                      <div
-                        className="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full transition-all"
-                        style={{
-                          width: `${(packedEssentialCount / essentialCount) * 100}%`,
-                        }}
-                      />
-                    </div>
+                  <div className="pt-4 border-t border-gray-200">
+                    <h4 className="text-gray-900 font-medium mb-2">Tips</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Pack versatile items that can be mixed</li>
+                      <li>• Check local dress codes</li>
+                      <li>• Leave room for souvenirs</li>
+                      <li>• Pack a small first-aid kit</li>
+                    </ul>
                   </div>
                 </div>
-
-                <div className="pt-4 border-t">
-                  <h4 className="mb-2">Tips</h4>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>
-                      • Pack versatile items that can be mixed
-                    </li>
-                    <li>• Check local dress codes</li>
-                    <li>• Leave room for souvenirs</li>
-                    <li>• Pack a small first-aid kit</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           {/* Packing List */}
           <div className="lg:col-span-2">
-            <Card className="backdrop-blur-xl bg-white/95 border-white/20 shadow-2xl">
-              <CardHeader>
-                <CardTitle>Recommended Items</CardTitle>
-                <CardDescription>
+            <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl">
+              <div className="p-6">
+                <h3 className="text-gray-900 text-xl font-semibold mb-2">
+                  Recommended Items
+                </h3>
+                <p className="text-gray-600 mb-6">
                   Check off items as you pack them
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
+                </p>
+
                 <div className="space-y-3">
                   {currentItems.map((item) => {
                     const isPacked = packedItems.has(item.item);
@@ -298,7 +302,11 @@ export default function WardrobePlanner({
                           </div>
                           <div>
                             <div
-                              className={`${isPacked ? "line-through text-muted-foreground" : ""}`}
+                              className={`${
+                                isPacked
+                                  ? "line-through text-gray-500"
+                                  : "text-gray-900"
+                              }`}
                             >
                               {item.item}
                             </div>
@@ -312,7 +320,10 @@ export default function WardrobePlanner({
                                 </Badge>
                               )}
                               {item.quantity > 1 && (
-                                <Badge variant="secondary">
+                                <Badge
+                                  variant="secondary"
+                                  className="bg-gray-100 text-gray-700"
+                                >
                                   Qty: {item.quantity}
                                 </Badge>
                               )}
@@ -320,39 +331,43 @@ export default function WardrobePlanner({
                           </div>
                         </div>
                         <Shirt
-                          className={`w-5 h-5 ${isPacked ? "text-green-500" : "text-gray-400"}`}
+                          className={`w-5 h-5 ${
+                            isPacked ? "text-green-500" : "text-gray-400"
+                          }`}
                         />
                       </div>
                     );
                   })}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Navigation */}
-        <div className="backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 p-6 mt-8">
-          <h3 className="text-white mb-4">Continue Planning</h3>
+        <div className="backdrop-blur-2xl bg-white/95 rounded-2xl border border-white/30 p-6 mt-8 shadow-2xl">
+          <h3 className="text-gray-900 mb-4 font-semibold">
+            Continue Planning
+          </h3>
           <div className="flex flex-wrap gap-3">
             <Button
               onClick={() => onNavigate("planner")}
               variant="outline"
-              className="border-white text-black hover:bg-white/10"
+              className="border-orange-300 text-orange-800 hover:bg-orange-50"
             >
               Trip Planner
             </Button>
             <Button
               onClick={() => onNavigate("itinerary")}
               variant="outline"
-              className="border-white text-black hover:bg-white/10"
+              className="border-orange-300 text-orange-800 hover:bg-orange-50"
             >
               View Itinerary
             </Button>
             <Button
               onClick={() => onNavigate("activities")}
               variant="outline"
-              className="border-white text-black hover:bg-white/10"
+              className="border-orange-300 text-orange-800 hover:bg-orange-50"
             >
               Browse Activities
             </Button>

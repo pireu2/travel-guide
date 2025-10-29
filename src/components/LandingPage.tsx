@@ -1,18 +1,11 @@
 import { Button } from "./ui/button";
-import {
-  Plane,
-  MapPin,
-  Calendar,
-  Sparkles,
-} from "lucide-react";
+import { Plane, MapPin, Calendar, Sparkles } from "lucide-react";
 
 interface LandingPageProps {
   onNavigate: (page: string) => void;
 }
 
-export default function LandingPage({
-  onNavigate,
-}: LandingPageProps) {
+export default function LandingPage({ onNavigate }: LandingPageProps) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500">
       {/* Background image with overlay */}
@@ -34,21 +27,13 @@ export default function LandingPage({
         {/* Glass card */}
         <div className="max-w-5xl w-full backdrop-blur-xl bg-white/10 rounded-3xl border border-white/20 shadow-2xl p-8 md:p-12">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/30 mb-6">
-              <Sparkles className="w-5 h-5 text-white" />
-              <span className="text-white">
-                Your AI-Powered Travel Companion
-              </span>
-            </div>
-
             <h1 className="text-white mb-6 text-5xl md:text-7xl">
               Plan Your Perfect Journey
             </h1>
 
             <p className="text-white/90 max-w-2xl mx-auto text-xl md:text-2xl">
-              From flights to local experiences, wardrobe
-              planning to itinerary management. Everything you
-              need for an unforgettable trip.
+              From flights to local experiences, wardrobe planning to itinerary
+              management. Everything you need for an unforgettable trip.
             </p>
           </div>
 
@@ -58,12 +43,9 @@ export default function LandingPage({
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
                 <Plane className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-white mb-2">
-                Smart Planning
-              </h3>
+              <h3 className="text-white mb-2">Smart Planning</h3>
               <p className="text-white/80">
-                Coordinate flights, accommodation, and
-                activities seamlessly
+                Coordinate flights, accommodation, and activities seamlessly
               </p>
             </div>
 
@@ -71,12 +53,9 @@ export default function LandingPage({
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-white mb-2">
-                Local Experiences
-              </h3>
+              <h3 className="text-white mb-2">Local Experiences</h3>
               <p className="text-white/80">
-                Discover authentic local culture beyond tourist
-                spots
+                Discover authentic local culture beyond tourist spots
               </p>
             </div>
 
@@ -84,9 +63,7 @@ export default function LandingPage({
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
                 <Calendar className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-white mb-2">
-                Organized Itinerary
-              </h3>
+              <h3 className="text-white mb-2">Organized Itinerary</h3>
               <p className="text-white/80">
                 Keep track of every detail with smart scheduling
               </p>
@@ -134,6 +111,41 @@ export default function LandingPage({
             className="text-white/80 hover:text-white transition-colors"
           >
             Itinerary
+          </button>
+          <span className="text-white/40">•</span>
+          <button
+            onClick={() => onNavigate("weather")}
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            Weather
+          </button>
+          <span className="text-white/40">•</span>
+          <button
+            onClick={() => onNavigate("currency")}
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            Currency
+          </button>
+          <span className="text-white/40">•</span>
+          <button
+            onClick={() => onNavigate("budget")}
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            Budget
+          </button>
+          <span className="text-white/40">•</span>
+          <button
+            onClick={() => onNavigate("packing")}
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            Packing List
+          </button>
+          <span className="text-white/40">•</span>
+          <button
+            onClick={() => onNavigate("emergency")}
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            Emergency
           </button>
         </div>
       </div>

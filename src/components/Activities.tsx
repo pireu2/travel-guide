@@ -1,21 +1,7 @@
 import { Button } from "./ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 import { Badge } from "./ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "./ui/tabs";
-import {
-  ArrowLeft,
   MapPin,
   Clock,
   Users,
@@ -25,6 +11,7 @@ import {
   Mountain,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import Navigation from "./Navigation";
 
 interface ActivitiesProps {
   onNavigate: (page: string) => void;
@@ -57,8 +44,7 @@ const activities = [
     category: "food",
     image:
       "https://images.unsplash.com/photo-1593684044226-bf7d27456209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZXhwbG9yYXRpb24lMjB0cmF2ZWx8ZW58MXx8fHwxNzYxMTEwOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    description:
-      "Taste authentic Thai dishes at hidden local gems",
+    description: "Taste authentic Thai dishes at hidden local gems",
     isLocal: true,
   },
   {
@@ -72,8 +58,7 @@ const activities = [
     category: "adventure",
     image:
       "https://images.unsplash.com/photo-1742201514090-5a173b9477ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMGFkdmVudHVyZSUyMHRyYXZlbHxlbnwxfHx8fDE3NjExMTA5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    description:
-      "Watch the sunrise from a breathtaking mountain peak",
+    description: "Watch the sunrise from a breathtaking mountain peak",
     isLocal: false,
   },
   {
@@ -87,8 +72,7 @@ const activities = [
     category: "cultural",
     image:
       "https://images.unsplash.com/photo-1593684044226-bf7d27456209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZXhwbG9yYXRpb24lMjB0cmF2ZWx8ZW58MXx8fHwxNzYxMTEwOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    description:
-      "Explore ancient ruins with an expert archaeologist",
+    description: "Explore ancient ruins with an expert archaeologist",
     isLocal: true,
   },
   {
@@ -102,8 +86,7 @@ const activities = [
     category: "food",
     image:
       "https://images.unsplash.com/photo-1593684044226-bf7d27456209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZXhwbG9yYXRpb24lMjB0cmF2ZWx8ZW58MXx8fHwxNzYxMTEwOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    description:
-      "Learn traditional Italian recipes from a local family",
+    description: "Learn traditional Italian recipes from a local family",
     isLocal: true,
   },
   {
@@ -117,8 +100,7 @@ const activities = [
     category: "adventure",
     image:
       "https://images.unsplash.com/photo-1604294731121-8bb3d4133971?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGJlYWNoJTIwdHJhdmVsfGVufDF8fHx8MTc2MTExMDkyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    description:
-      "Discover underwater wonders with certified instructors",
+    description: "Discover underwater wonders with certified instructors",
     isLocal: false,
   },
 ];
@@ -129,64 +111,75 @@ const categoryIcons: Record<string, React.ReactNode> = {
   adventure: <Mountain className="w-4 h-4" />,
 };
 
-export default function Activities({
-  onNavigate,
-}: ActivitiesProps) {
+export default function Activities({ onNavigate }: ActivitiesProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-600 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-600 p-4 md:p-8 relative overflow-hidden">
+      <Navigation onNavigate={onNavigate} currentPage="activities" />
+
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-emerald-300/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-teal-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl animate-pulse delay-500" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}
         <div className="mb-8">
-          <Button
-            onClick={() => onNavigate("home")}
-            variant="ghost"
-            className="text-white hover:bg-white/10 mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Button>
-
-          <div className="backdrop-blur-xl bg-white/10 rounded-3xl border border-white/20 p-6 md:p-8">
-            <h1 className="text-white mb-2">
-              Discover Experiences
-            </h1>
-            <p className="text-white/80">
-              Find authentic local activities and adventures
-            </p>
+          <div className="backdrop-blur-2xl bg-white/95 rounded-3xl border border-white/30 p-8 shadow-2xl">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-gray-900 text-4xl font-bold mb-2">
+                  Discover Experiences
+                </h1>
+                <p className="text-gray-700 text-lg">
+                  Find authentic local activities and adventures
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Badge
+                  variant="secondary"
+                  className="bg-emerald-100 text-emerald-800 border-emerald-200"
+                >
+                  <Landmark className="w-4 h-4 mr-1" />
+                  Activity Finder
+                </Badge>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Tabs */}
         <Tabs defaultValue="all" className="mb-8">
-          <div className="backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 p-2 mb-6">
+          <div className="backdrop-blur-2xl bg-white/95 rounded-2xl border border-white/30 p-2 mb-6 shadow-2xl">
             <TabsList className="bg-transparent w-full justify-start gap-2">
               <TabsTrigger
                 value="all"
-                className="data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                className="text-gray-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-900"
               >
                 All Experiences
               </TabsTrigger>
               <TabsTrigger
                 value="local"
-                className="data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                className="text-gray-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-900"
               >
                 Local Favorites
               </TabsTrigger>
               <TabsTrigger
                 value="cultural"
-                className="data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                className="text-gray-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-900"
               >
                 Cultural
               </TabsTrigger>
               <TabsTrigger
                 value="food"
-                className="data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                className="text-gray-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-900"
               >
                 Food & Dining
               </TabsTrigger>
               <TabsTrigger
                 value="adventure"
-                className="data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                className="text-gray-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-900"
               >
                 Adventure
               </TabsTrigger>
@@ -196,9 +189,9 @@ export default function Activities({
           <TabsContent value="all" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {activities.map((activity) => (
-                <Card
+                <div
                   key={activity.id}
-                  className="backdrop-blur-xl bg-white/95 border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02]"
+                  className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <ImageWithFallback
@@ -213,64 +206,53 @@ export default function Activities({
                     )}
                     <div className="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded-full flex items-center gap-1">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span>{activity.rating}</span>
+                      <span className="text-gray-900">{activity.rating}</span>
                     </div>
                   </div>
 
-                  <CardHeader>
+                  <div className="p-6">
                     <div className="flex items-start gap-2 mb-2">
                       <Badge
                         variant="outline"
-                        className="capitalize"
+                        className="capitalize text-emerald-700 border-emerald-300"
                       >
                         {categoryIcons[activity.category]}
-                        <span className="ml-1">
-                          {activity.category}
-                        </span>
+                        <span className="ml-1">{activity.category}</span>
                       </Badge>
                     </div>
-                    <CardTitle>{activity.name}</CardTitle>
-                    <CardDescription className="flex items-center gap-1">
+                    <h3 className="text-gray-900 text-lg font-semibold mb-1">
+                      {activity.name}
+                    </h3>
+                    <div className="flex items-center gap-1 text-gray-600 mb-4">
                       <MapPin className="w-4 h-4" />
                       {activity.location}
-                    </CardDescription>
-                  </CardHeader>
+                    </div>
 
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      {activity.description}
-                    </p>
+                    <p className="text-gray-600 mb-4">{activity.description}</p>
 
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-muted-foreground" />
+                    <div className="flex flex-col gap-2 mb-4">
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <Clock className="w-4 h-4" />
                         <span>{activity.duration}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4 text-muted-foreground" />
-                        <span>
-                          Up to {activity.participants} people
-                        </span>
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <Users className="w-4 h-4" />
+                        <span>Up to {activity.participants} people</span>
                       </div>
                     </div>
 
-                    <div className="mt-4">
-                      <span className="text-primary">
+                    <div className="mb-4">
+                      <span className="text-emerald-600 text-lg font-bold">
                         From ${activity.price}
                       </span>
-                      <span className="text-muted-foreground">
-                        {" "}
-                        / person
-                      </span>
+                      <span className="text-gray-500"> / person</span>
                     </div>
-                  </CardContent>
 
-                  <CardFooter>
-                    <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700">
+                    <Button className="w-full bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
                       Book Experience
                     </Button>
-                  </CardFooter>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           </TabsContent>
@@ -280,9 +262,9 @@ export default function Activities({
               {activities
                 .filter((a) => a.isLocal)
                 .map((activity) => (
-                  <Card
+                  <div
                     key={activity.id}
-                    className="backdrop-blur-xl bg-white/95 border-white/20 shadow-2xl overflow-hidden"
+                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -294,18 +276,52 @@ export default function Activities({
                         Local Experience
                       </Badge>
                     </div>
-                    <CardHeader>
-                      <CardTitle>{activity.name}</CardTitle>
-                      <CardDescription>
+
+                    <div className="p-6">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Badge
+                          variant="outline"
+                          className="capitalize text-emerald-700 border-emerald-300"
+                        >
+                          {categoryIcons[activity.category]}
+                          <span className="ml-1">{activity.category}</span>
+                        </Badge>
+                      </div>
+                      <h3 className="text-gray-900 text-lg font-semibold mb-1">
+                        {activity.name}
+                      </h3>
+                      <div className="flex items-center gap-1 text-gray-600 mb-4">
+                        <MapPin className="w-4 h-4" />
                         {activity.location}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
+                      </div>
+
+                      <p className="text-gray-600 mb-4">
                         {activity.description}
                       </p>
-                    </CardContent>
-                  </Card>
+
+                      <div className="flex flex-col gap-2 mb-4">
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Clock className="w-4 h-4" />
+                          <span>{activity.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Users className="w-4 h-4" />
+                          <span>Up to {activity.participants} people</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <span className="text-emerald-600 text-lg font-bold">
+                          From ${activity.price}
+                        </span>
+                        <span className="text-gray-500"> / person</span>
+                      </div>
+
+                      <Button className="w-full bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
+                        Book Experience
+                      </Button>
+                    </div>
+                  </div>
                 ))}
             </div>
           </TabsContent>
@@ -315,9 +331,9 @@ export default function Activities({
               {activities
                 .filter((a) => a.category === "cultural")
                 .map((activity) => (
-                  <Card
+                  <div
                     key={activity.id}
-                    className="backdrop-blur-xl bg-white/95 border-white/20 shadow-2xl overflow-hidden"
+                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -325,19 +341,62 @@ export default function Activities({
                         alt={activity.name}
                         className="w-full h-full object-cover"
                       />
+                      {activity.isLocal && (
+                        <Badge className="absolute top-4 left-4 bg-emerald-500 text-white">
+                          Local Experience
+                        </Badge>
+                      )}
+                      <div className="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded-full flex items-center gap-1">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-gray-900">{activity.rating}</span>
+                      </div>
                     </div>
-                    <CardHeader>
-                      <CardTitle>{activity.name}</CardTitle>
-                      <CardDescription>
+
+                    <div className="p-6">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Badge
+                          variant="outline"
+                          className="capitalize text-emerald-700 border-emerald-300"
+                        >
+                          {categoryIcons[activity.category]}
+                          <span className="ml-1">{activity.category}</span>
+                        </Badge>
+                      </div>
+                      <h3 className="text-gray-900 text-lg font-semibold mb-1">
+                        {activity.name}
+                      </h3>
+                      <div className="flex items-center gap-1 text-gray-600 mb-4">
+                        <MapPin className="w-4 h-4" />
                         {activity.location}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
+                      </div>
+
+                      <p className="text-gray-600 mb-4">
                         {activity.description}
                       </p>
-                    </CardContent>
-                  </Card>
+
+                      <div className="flex flex-col gap-2 mb-4">
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Clock className="w-4 h-4" />
+                          <span>{activity.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Users className="w-4 h-4" />
+                          <span>Up to {activity.participants} people</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <span className="text-emerald-600 text-lg font-bold">
+                          From ${activity.price}
+                        </span>
+                        <span className="text-gray-500"> / person</span>
+                      </div>
+
+                      <Button className="w-full bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
+                        Book Experience
+                      </Button>
+                    </div>
+                  </div>
                 ))}
             </div>
           </TabsContent>
@@ -347,9 +406,9 @@ export default function Activities({
               {activities
                 .filter((a) => a.category === "food")
                 .map((activity) => (
-                  <Card
+                  <div
                     key={activity.id}
-                    className="backdrop-blur-xl bg-white/95 border-white/20 shadow-2xl overflow-hidden"
+                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -357,19 +416,62 @@ export default function Activities({
                         alt={activity.name}
                         className="w-full h-full object-cover"
                       />
+                      {activity.isLocal && (
+                        <Badge className="absolute top-4 left-4 bg-emerald-500 text-white">
+                          Local Experience
+                        </Badge>
+                      )}
+                      <div className="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded-full flex items-center gap-1">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-gray-900">{activity.rating}</span>
+                      </div>
                     </div>
-                    <CardHeader>
-                      <CardTitle>{activity.name}</CardTitle>
-                      <CardDescription>
+
+                    <div className="p-6">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Badge
+                          variant="outline"
+                          className="capitalize text-emerald-700 border-emerald-300"
+                        >
+                          {categoryIcons[activity.category]}
+                          <span className="ml-1">{activity.category}</span>
+                        </Badge>
+                      </div>
+                      <h3 className="text-gray-900 text-lg font-semibold mb-1">
+                        {activity.name}
+                      </h3>
+                      <div className="flex items-center gap-1 text-gray-600 mb-4">
+                        <MapPin className="w-4 h-4" />
                         {activity.location}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
+                      </div>
+
+                      <p className="text-gray-600 mb-4">
                         {activity.description}
                       </p>
-                    </CardContent>
-                  </Card>
+
+                      <div className="flex flex-col gap-2 mb-4">
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Clock className="w-4 h-4" />
+                          <span>{activity.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Users className="w-4 h-4" />
+                          <span>Up to {activity.participants} people</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <span className="text-emerald-600 text-lg font-bold">
+                          From ${activity.price}
+                        </span>
+                        <span className="text-gray-500"> / person</span>
+                      </div>
+
+                      <Button className="w-full bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
+                        Book Experience
+                      </Button>
+                    </div>
+                  </div>
                 ))}
             </div>
           </TabsContent>
@@ -379,9 +481,9 @@ export default function Activities({
               {activities
                 .filter((a) => a.category === "adventure")
                 .map((activity) => (
-                  <Card
+                  <div
                     key={activity.id}
-                    className="backdrop-blur-xl bg-white/95 border-white/20 shadow-2xl overflow-hidden"
+                    className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all hover:scale-[1.02] rounded-2xl"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <ImageWithFallback
@@ -389,46 +491,89 @@ export default function Activities({
                         alt={activity.name}
                         className="w-full h-full object-cover"
                       />
+                      {activity.isLocal && (
+                        <Badge className="absolute top-4 left-4 bg-emerald-500 text-white">
+                          Local Experience
+                        </Badge>
+                      )}
+                      <div className="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded-full flex items-center gap-1">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-gray-900">{activity.rating}</span>
+                      </div>
                     </div>
-                    <CardHeader>
-                      <CardTitle>{activity.name}</CardTitle>
-                      <CardDescription>
+
+                    <div className="p-6">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Badge
+                          variant="outline"
+                          className="capitalize text-emerald-700 border-emerald-300"
+                        >
+                          {categoryIcons[activity.category]}
+                          <span className="ml-1">{activity.category}</span>
+                        </Badge>
+                      </div>
+                      <h3 className="text-gray-900 text-lg font-semibold mb-1">
+                        {activity.name}
+                      </h3>
+                      <div className="flex items-center gap-1 text-gray-600 mb-4">
+                        <MapPin className="w-4 h-4" />
                         {activity.location}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
+                      </div>
+
+                      <p className="text-gray-600 mb-4">
                         {activity.description}
                       </p>
-                    </CardContent>
-                  </Card>
+
+                      <div className="flex flex-col gap-2 mb-4">
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Clock className="w-4 h-4" />
+                          <span>{activity.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Users className="w-4 h-4" />
+                          <span>Up to {activity.participants} people</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <span className="text-emerald-600 text-lg font-bold">
+                          From ${activity.price}
+                        </span>
+                        <span className="text-gray-500"> / person</span>
+                      </div>
+
+                      <Button className="w-full bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
+                        Book Experience
+                      </Button>
+                    </div>
+                  </div>
                 ))}
             </div>
           </TabsContent>
         </Tabs>
 
         {/* Navigation */}
-        <div className="backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 p-6">
-          <h3 className="text-white mb-4">Continue Planning</h3>
+        <div className="backdrop-blur-2xl bg-white/95 border border-white/30 shadow-2xl rounded-2xl p-6">
+          <h3 className="text-gray-900 mb-4">Continue Planning</h3>
           <div className="flex flex-wrap gap-3">
             <Button
               onClick={() => onNavigate("planner")}
               variant="outline"
-              className="border-white text-black hover:bg-white/10"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50"
             >
               Trip Planner
             </Button>
             <Button
               onClick={() => onNavigate("accommodation")}
               variant="outline"
-              className="border-white text-black hover:bg-white/10"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50"
             >
               Accommodation
             </Button>
             <Button
               onClick={() => onNavigate("itinerary")}
               variant="outline"
-              className="border-white text-black hover:bg-white/10"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50"
             >
               Create Itinerary
             </Button>

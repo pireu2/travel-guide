@@ -5,6 +5,11 @@ import Accommodation from "./components/Accommodation";
 import Activities from "./components/Activities";
 import WardrobePlanner from "./components/WardrobePlanner";
 import Itinerary from "./components/Itinerary";
+import Weather from "./components/Weather";
+import CurrencyConverter from "./components/CurrencyConverter";
+import BudgetCalculator from "./components/BudgetCalculator";
+import PackingList from "./components/PackingList";
+import EmergencyContacts from "./components/EmergencyContacts";
 
 type PageType =
   | "home"
@@ -12,7 +17,12 @@ type PageType =
   | "accommodation"
   | "activities"
   | "wardrobe"
-  | "itinerary";
+  | "itinerary"
+  | "weather"
+  | "currency"
+  | "budget"
+  | "packing"
+  | "emergency";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>("home");
@@ -36,6 +46,16 @@ export default function App() {
         return <WardrobePlanner onNavigate={handleNavigate} />;
       case "itinerary":
         return <Itinerary onNavigate={handleNavigate} />;
+      case "weather":
+        return <Weather onNavigate={handleNavigate} />;
+      case "currency":
+        return <CurrencyConverter onNavigate={handleNavigate} />;
+      case "budget":
+        return <BudgetCalculator onNavigate={handleNavigate} />;
+      case "packing":
+        return <PackingList onNavigate={handleNavigate} />;
+      case "emergency":
+        return <EmergencyContacts onNavigate={handleNavigate} />;
       default:
         return <LandingPage onNavigate={handleNavigate} />;
     }
