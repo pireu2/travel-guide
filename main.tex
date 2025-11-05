@@ -1,0 +1,250 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{titlesec}
+
+\definecolor{accent}{HTML}{006666}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  urlcolor=accent
+}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection}{0.5em}{}
+
+\title{\vspace{-1em}\textbf{Project Documentation}\\
+\large Personal Travel Assistant}
+\author{Team: Group 1\\
+Members: Simion Oltean Callian, Duica Sebastian, Denisa Sarafinceanu, Cosmin Savut}
+\date{October 2025 – January 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1em}
+
+\tableofcontents
+\newpage
+
+% =========================
+\refstepcounter{section}
+\section*{Phase 2 – Project Proposal Presentation}
+
+\subsection{Description of the Project Problem Domain}
+
+Travel planning entails transport, accommodation, and day activity booking all over
+several online services. Most users alternate between booking sites, map apps, and calendars,
+which enhance mental workload and likelihood of forgetting information; reduce steps and offering
+clear feedback eliminates this task \cite{card1983psychology}. Our project — the \textbf{Personal Travel Assistant} — is
+to compile all travel information into one easy interface to assist users in creating, editing, and
+track their travels effectively.
+Travel planning involves coordinating transport, accommodation, and daily activities across several online services.
+
+\subsection{User Types}
+\begin{itemize}
+  \item \textbf{Students and young travelers} – seek affordable trips, rely mainly on mobile devices, moderate tech proficiency.
+  \item \textbf{Business travelers} – need fast, reliable scheduling; high device proficiency; value reminders and sync with calendars.
+  \item \textbf{Families or groups} – require clarity, simple navigation, and shared itineraries.
+\end{itemize}
+
+\subsubsection*{Knowledge Levels}
+\begin{itemize}
+  \item \textbf{Domain knowledge:} users can have only basic knowledge of bookings and travel choices.
+  \item \textbf{Device knowledge:} is minimal; the interface uses familiar patterns (buttons, icons) and short texts, compatible with phones, tablets, and computers.
+\end{itemize}
+
+\subsubsection*{Special User Requirements}
+
+The design follows \textit{WCAG 2.2 AA} accessibility goals and relies on human-centred design prin-
+ciples to ensure equitable access \cite{iso9241}
+
+\begin{itemize}
+  \item High-contrast color theme and scalable text for visually impaired users.
+  \item Voice-assisted search for users with motor disabilities.
+  \item Touch-friendly layout and short forms to minimize effort.
+\end{itemize}
+
+\subsection{Main Challenges and Motivation}
+\begin{itemize}
+  \item \textbf{Fragmented tools} – travelers must manage several unrelated apps.
+  \item \textbf{Uncertain conditions} – cancellations, weather, and delays require dynamic re-planning.
+  \item \textbf{Information overload} – difficult to find trustworthy local experiences.
+\end{itemize}
+\textbf{Motivation:} integrating essential travel information in one accessible application saves time and reduces stress.
+Usability research stresses the value of simplicity, visibility of system status, and error prevention when managing time-critical tasks \cite{nielsen1994usability}.
+
+\subsection{Context of Use}
+The app could be used:
+\begin{itemize}
+  \item On \textbf{mobile phones} during trips — noisy, interruptive environments (airports, buses), where concise feedback and large touch targets help maintain flow \cite{nielsen1994usability}.
+  \item On \textbf{desktops} for planning — quieter, analytical context suited to comparison and review.
+  \item With \textbf{time-sensitive tasks} (boarding, check-ins), so quick feedback and reminders are essential.
+  \item \textbf{Offline access} is needed for tickets and maps when connectivity is lost.
+\end{itemize}
+
+\subsection{Existing Applications}
+\begin{tabularx}{\linewidth}{l X X}
+\toprule
+\textbf{App} & \textbf{Advantages} & \textbf{Limitations} \\
+\midrule
+TripAdvisor & Many reviews and location data & Hard to personalize; no schedule integration \\
+Booking.com & Reliable booking engine & Limited itinerary organization \\
+Google Maps & Excellent navigation support & Overwhelming interface for trip planning \\
+TripIt & Auto-import of bookings & Premium features locked; limited local discovery \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Interconnection with Other Tools}
+The Personal Travel Assistant integrates existing services to avoid manual re-entry of data:
+\begin{itemize}
+  \item \textbf{Google Maps API} – display routes and travel times.
+  \item \textbf{Email parsing} – detect booking confirmations and import details.
+\end{itemize}
+Consistent interaction patterns and clearly scoped integrations support efficiency and satisfaction in line with human-centred design guidance \cite{iso9241}.
+
+% =========================
+\newpage
+\refstepcounter{section}
+\section*{Phase 2a – Task Analysis Examples}
+
+This phase presents two simple travel related tasks that typical users of the Personal Travel Assistant project would perform.
+
+\subsection{Task 1 — Plan a Weekend Trip}
+\textbf{Goal:} create a basic travel plan for a short trip.
+
+\begin{enumerate}
+  \item Open the app and tap “Plan new trip.”
+  \item Enter the destination and dates.
+  \item Select one suggested hotel.
+  \item Choose one transport option (train or flight).
+  \item Save the trip.
+\end{enumerate}
+
+\textbf{Expected result:} the trip is saved, and the user can see it on the main screen with hotel and travel details.
+
+\subsection{Task 2 — Change the Travel Date}
+\textbf{Goal:} adjust a planned trip when the departure date changes.
+
+\begin{enumerate}
+  \item Open “My Trips” and select the saved trip.
+  \item Tap “Edit” and choose a new start date.
+  \item The app updates the return date automatically.
+  \item Confirm and save the changes.
+\end{enumerate}
+
+\textbf{Expected result:} the trip shows the new dates, and reminders update automatically.
+
+% =========================
+\newpage
+\refstepcounter{section}
+\section*{Phase 3 – Task Analysis}
+
+This phase describes 12 simple and realistic tasks that users can perform with the \textbf{Personal Travel Assistant}.  
+Each task includes the starting point, type of user, actions performed, motivation, and the context in which it occurs.
+
+\subsection*{Task 1 – Search for a Destination}
+\textbf{Starting point:} Home screen \\
+\textbf{Users:} All users \\
+\textbf{What:} The user types the name of a city or country into the search bar to see available information.  
+The system shows details such as basic facts, attractions, and weather. \\
+\textbf{Why:} The user wants to explore or gather information about a place before planning a trip. \\
+\textbf{Context:} Usually done from home on a mobile device or laptop while browsing casually.
+
+\subsection*{Task 2 – View Destination Details}
+\textbf{Starting point:} Search results page \\
+\textbf{Users:} All users \\
+\textbf{What:} The user selects one destination from the list to view more details such as images, short descriptions, and nearby points of interest. \\
+\textbf{Why:} To better understand what the destination offers before deciding to plan a trip. \\
+\textbf{Context:} Done during free time, either on desktop or mobile.
+
+\subsection*{Task 3 – Create a New Trip}
+\textbf{Starting point:} Dashboard or Home screen \\
+\textbf{Users:} All users \\
+\textbf{What:} The user clicks “Add Trip,” enters the destination name, start and end dates, and an optional description.  
+The system saves this as a new trip in the user’s list. \\
+\textbf{Why:} To start organizing an upcoming journey or vacation. \\
+\textbf{Context:} Usually done at home in a calm environment, on mobile or desktop.
+
+\subsection*{Task 4 – Add Notes to a Trip}
+\textbf{Starting point:} Trip details page \\
+\textbf{Users:} All users \\
+\textbf{What:} The user adds short notes such as reminders, packing lists, or travel tips inside the trip view.  
+The notes are saved automatically. \\
+\textbf{Why:} To keep all relevant information about the trip in one place. \\
+\textbf{Context:} Done while planning or during the trip when new ideas come up.
+
+\subsection*{Task 5 – Add an Activity}
+\textbf{Starting point:} Trip details page \\
+\textbf{Users:} All users \\
+\textbf{What:} The user adds one or more planned activities, such as visiting a museum, going on a hike, or attending an event, with optional time and description. \\
+\textbf{Why:} To organize each day’s schedule and make the trip easier to follow. \\
+\textbf{Context:} Usually done during trip planning, on desktop or mobile.
+
+\subsection*{Task 6 – Edit a Trip}
+\textbf{Starting point:} My Trips section \\
+\textbf{Users:} All users \\
+\textbf{What:} The user selects a trip and modifies details such as travel dates, notes, or activities.  
+The system updates the information and saves changes automatically. \\
+\textbf{Why:} Travel dates or plans may change, and the user wants to keep the app up to date. \\
+\textbf{Context:} Done quickly from mobile or laptop, before or during travel.
+
+\subsection*{Task 7 – Delete a Trip}
+\textbf{Starting point:} My Trips section \\
+\textbf{Users:} All users \\
+\textbf{What:} The user deletes a trip that is no longer needed or has already been completed.  
+The app asks for confirmation before removing it permanently. \\
+\textbf{Why:} To keep the trip list organized and remove old entries. \\
+\textbf{Context:} Short action done at home or while organizing previous travel records.
+
+\subsection*{Task 8 – View Saved Trips}
+\textbf{Starting point:} Dashboard or My Trips page \\
+\textbf{Users:} All users \\
+\textbf{What:} The user opens the list of all saved trips to review them.  
+Selecting a trip opens its details such as dates, notes, and activities. \\
+\textbf{Why:} To see progress, check upcoming trips, or revisit past ones. \\
+\textbf{Context:} Done casually from desktop or mobile, often while planning.
+
+\subsection*{Task 9 – Share a Trip}
+\textbf{Starting point:} Trip details page \\
+\textbf{Users:} Friends, families, groups \\
+\textbf{What:} The user shares the trip summary or itinerary via link, email, or messaging app.  
+The recipient can view basic trip information but cannot edit it. \\
+\textbf{Why:} To share travel ideas or coordinate with companions. \\
+\textbf{Context:} Usually done online from a mobile device.
+
+\subsection*{Task 10 – Mark a Trip as Completed}
+\textbf{Starting point:} My Trips section \\
+\textbf{Users:} All users \\
+\textbf{What:} The user marks a finished trip as completed, which moves it from the “Upcoming” to “Past Trips” list. \\
+\textbf{Why:} To separate past experiences from future travel plans and keep data organized. \\
+\textbf{Context:} Done after returning home from the trip, on desktop or mobile.
+
+\subsection*{Task 11 – Set a Reminder}
+\textbf{Starting point:} Trip details page \\
+\textbf{Users:} All users \\
+\textbf{What:} The user creates a simple reminder for a specific date or time, such as the departure day or activity start time.  
+The app sends a notification when the event is near. \\
+\textbf{Why:} To avoid missing important travel activities or departure times. \\
+\textbf{Context:} Usually set before the trip, on mobile devices.
+
+\subsection*{Task 12 – Change App Settings}
+\textbf{Starting point:} Settings page \\
+\textbf{Users:} All users \\
+\textbf{What:} The user adjusts preferences such as app language, theme (light/dark), or notification options.  
+Settings are saved automatically and applied globally. \\
+\textbf{Why:} To personalize the app according to personal comfort and needs. \\
+\textbf{Context:} Done occasionally, at any time, on mobile or desktop.
+
+
+\newpage
+\begin{thebibliography}{9} \bibitem{nielsen1994usability} J. Nielsen, \textit{Usability Engineering}. Academic Press, 1994. \bibitem{iso9241} International Organization for Standardization, \textit{ISO 9241-210:2019 Ergonomics of Human-System Interaction — Human-centred Design for Interactive Systems}, 2019. \bibitem{card1983psychology} S. Card, T. Moran, A. Newell, \textit{The Psychology of Human-Computer Interaction}. Erlbaum Associates, 1983. \end{thebibliography}
+
+\end{document}
