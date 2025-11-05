@@ -1,41 +1,41 @@
-# 🌍 Travel Guide - Comprehensive Travel Planning App
+# Travel Guide - Comprehensive Travel Planning App
 
 A modern, user-friendly travel planning application built with React, TypeScript, and Tailwind CSS. Plan your perfect trip with integrated tools for accommodation, activities, budgeting, packing, and more.
 
-## ✨ Features
+## Features
 
-### 🗺️ **Trip Planning**
+### Trip Planning
 
 - **Trip Planner**: Create and customize your travel itinerary with destination details, dates, and trip type
 - **Itinerary Management**: Organize daily schedules and activities with drag-and-drop functionality
 - **Weather Integration**: Get real-time weather forecasts for your destination
 
-### 🏨 **Accommodation & Activities**
+### Accommodation & Activities
 
 - **Accommodation Finder**: Search and compare hotels, resorts, and vacation rentals
 - **Activities Booking**: Discover and book local experiences, tours, and attractions
 - **Wardrobe Planner**: Plan outfits based on weather conditions and trip activities
 
-### 💰 **Budget & Finance**
+### Budget & Finance
 
 - **Budget Calculator**: Track expenses and stay within your travel budget
 - **Currency Converter**: Real-time currency exchange rates and conversion tools
 - **Expense Tracking**: Monitor spending across different categories
 
-### 🎒 **Travel Essentials**
+### Travel Essentials
 
 - **Smart Packing List**: AI-powered packing suggestions based on weather and activities
 - **Emergency Contacts**: Store and manage important emergency contact information
 - **Travel Safety Tips**: Comprehensive safety guidelines and emergency procedures
 
-### 🎨 **User Experience**
+### User Experience
 
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Dark/Light Mode**: Modern glassmorphism design with high-contrast accessibility
 - **Intuitive Navigation**: Seamless navigation between all travel planning tools
 - **Real-time Updates**: Live data integration for weather, currency, and activities
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
@@ -66,14 +66,14 @@ A modern, user-friendly travel planning application built with React, TypeScript
 4. **Open your browser**
    Navigate to `http://localhost:5173` to view the application
 
-## 🛠️ Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start the development server with hot reload
 - `npm run build` - Build the project for production
 - `npm run preview` - Preview the production build locally
 - `npm run lint` - Run ESLint to check code quality
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 ### Frontend Framework
 
@@ -94,7 +94,7 @@ A modern, user-friendly travel planning application built with React, TypeScript
 - **TypeScript** - Type checking and IntelliSense
 - **Vite** - Fast development and build tooling
 
-## 📱 Component Architecture
+## Component Architecture
 
 The application follows a modular component architecture:
 
@@ -119,7 +119,7 @@ src/
 └── assets/           # Static assets
 ```
 
-## 🎯 Key Features Overview
+## Key Features Overview
 
 ### Trip Planning Workflow
 
@@ -139,7 +139,7 @@ src/
 - **Responsive Design**: Works seamlessly on all device sizes
 - **Accessibility**: High-contrast mode and keyboard navigation support
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -147,11 +147,11 @@ src/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with [shadcn/ui](https://ui.shadcn.com/) for the component library
 - Icons provided by [Lucide React](https://lucide.dev/)
@@ -160,4 +160,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Happy Travels! ✈️** - Plan your next adventure with confidence using our comprehensive travel planning suite.
+**Happy Travels!** - Plan your next adventure with confidence using our comprehensive travel planning suite.
