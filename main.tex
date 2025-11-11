@@ -150,98 +150,479 @@ This phase presents two simple travel related tasks that typical users of the Pe
 This phase describes 12 simple and realistic tasks that users can perform with the \textbf{Personal Travel Assistant}.  
 Each task includes the starting point, type of user, actions performed, motivation, and the context in which it occurs.
 
-\subsection*{Task 1 – Search for a Destination}
-\textbf{Starting point:} Home screen \\
-\textbf{Users:} All users \\
-\textbf{What:} The user types the name of a city or country into the search bar to see available information.  
-The system shows details such as basic facts, attractions, and weather. \\
-\textbf{Why:} The user wants to explore or gather information about a place before planning a trip. \\
-\textbf{Context:} Usually done from home on a mobile device or laptop while browsing casually.
+\subsection*{Task 1 – Explore Different Destinations}
+\textbf{Starting point:} Landing page \\
+\textbf{Users:} All users looking for travel inspiration \\
+\textbf{What:} The user browses the landing page to see featured destinations and travel options. They navigate to the Trip Planner to enter a destination name and see the form fields for dates, travelers, trip type, and budget. They can then explore related tools like Weather to check conditions for their chosen destination, and Activities to see what experiences might be available. \\
+\textbf{Why:} To get familiar with the app's capabilities and start thinking about potential travel destinations. \\
+\textbf{Context:} Done casually at home while browsing for travel ideas, typically on mobile or desktop during free time.
 
-\subsection*{Task 2 – View Destination Details}
-\textbf{Starting point:} Search results page \\
-\textbf{Users:} All users \\
-\textbf{What:} The user selects one destination from the list to view more details such as images, short descriptions, and nearby points of interest. \\
-\textbf{Why:} To better understand what the destination offers before deciding to plan a trip. \\
-\textbf{Context:} Done during free time, either on desktop or mobile.
+\subsection*{Task 2 – Check Weather and Plan Accordingly}
+\textbf{Starting point:} Weather component \\
+\textbf{Users:} Travelers planning outfit and activity choices \\
+\textbf{What:} The user navigates to the Weather section to check current conditions and forecast information for their destination. They review temperature ranges, precipitation chances, and weather patterns. Based on this information, they navigate to the Wardrobe Planner to see clothing recommendations for different weather scenarios (beach, winter, business, adventure) and adjust their packing plans accordingly. \\
+\textbf{Why:} To make informed decisions about what to pack and which activities might be suitable for the expected weather conditions. \\
+\textbf{Context:} Done during trip planning phase when deciding on clothing and activities, typically at home using desktop or mobile for quick checks.
 
-\subsection*{Task 3 – Create a New Trip}
-\textbf{Starting point:} Dashboard or Home screen \\
-\textbf{Users:} All users \\
-\textbf{What:} The user clicks “Add Trip,” enters the destination name, start and end dates, and an optional description.  
-The system saves this as a new trip in the user’s list. \\
-\textbf{Why:} To start organizing an upcoming journey or vacation. \\
-\textbf{Context:} Usually done at home in a calm environment, on mobile or desktop.
+\subsection*{Task 3 – Plan Trip Details Using the Trip Planner}
+\textbf{Starting point:} Trip Planner interface \\
+\textbf{Users:} Users ready to organize their travel details \\
+\textbf{What:} The user fills out the trip planning form by entering destination information, selecting start and end dates, specifying the number of travelers, choosing a trip type (leisure, business, adventure, cultural, relaxation), and setting a preliminary budget. They explore the action cards to navigate to different planning tools like accommodation search, activities discovery, weather checking, currency conversion, and budget calculation to get ideas for their trip structure. \\
+\textbf{Why:} To organize basic trip information and explore the different planning tools available in the application. \\
+\textbf{Context:} Done when ready to move from general browsing to specific trip planning, typically at home using desktop for form completion and exploration.
 
-\subsection*{Task 4 – Add Notes to a Trip}
-\textbf{Starting point:} Trip details page \\
-\textbf{Users:} All users \\
-\textbf{What:} The user adds short notes such as reminders, packing lists, or travel tips inside the trip view.  
-The notes are saved automatically. \\
-\textbf{Why:} To keep all relevant information about the trip in one place. \\
-\textbf{Context:} Done while planning or during the trip when new ideas come up.
+\subsection*{Task 4 – Research and Browse Accommodations}
+\textbf{Starting point:} Accommodation search interface \\
+\textbf{Users:} Travelers looking for places to stay \\
+\textbf{What:} The user explores the accommodation section to browse different types of lodging options including hotels, resorts, and lodges. They review accommodation details like pricing, amenities (WiFi, pool, breakfast, parking, restaurant, spa), ratings, and view images of different properties. They can filter options and compare different accommodation types to understand what's available in their budget range. \\
+\textbf{Why:} To explore accommodation options and understand pricing and amenities to help with booking decisions later. \\
+\textbf{Context:} Done during the planning phase when considering where to stay, typically at home using desktop for detailed comparison of options and amenities.
 
-\subsection*{Task 5 – Add an Activity}
-\textbf{Starting point:} Trip details page \\
-\textbf{Users:} All users \\
-\textbf{What:} The user adds one or more planned activities, such as visiting a museum, going on a hike, or attending an event, with optional time and description. \\
-\textbf{Why:} To organize each day’s schedule and make the trip easier to follow. \\
-\textbf{Context:} Usually done during trip planning, on desktop or mobile.
+\subsection*{Task 5 – Discover and Explore Activities}
+\textbf{Starting point:} Activities browser interface \\
+\textbf{Users:} Travelers seeking experiences and things to do \\
+\textbf{What:} The user browses the activities section using category tabs (all, cultural, food, adventure) to discover different types of experiences. They review activity details including descriptions, duration, pricing, participant limits, ratings, and location information. They can view images and read about various activities like cultural tours, cooking classes, adventure sports, and local experiences to get ideas for their itinerary. \\
+\textbf{Why:} To discover interesting activities and experiences available at their destination and understand pricing and time commitments for different types of activities. \\
+\textbf{Context:} Done during planning when looking for things to do, often at home browsing for inspiration or specific activity types, using mobile or desktop for exploration.
 
-\subsection*{Task 6 – Edit a Trip}
-\textbf{Starting point:} My Trips section \\
-\textbf{Users:} All users \\
-\textbf{What:} The user selects a trip and modifies details such as travel dates, notes, or activities.  
-The system updates the information and saves changes automatically. \\
-\textbf{Why:} Travel dates or plans may change, and the user wants to keep the app up to date. \\
-\textbf{Context:} Done quickly from mobile or laptop, before or during travel.
+\subsection*{Task 6 – Plan Wardrobe Using Weather Information}
+\textbf{Starting point:} Wardrobe Planner interface \\
+\textbf{Users:} Travelers wanting to pack appropriately \\
+\textbf{What:} The user uses the Wardrobe Planner to explore different packing scenarios based on trip type and weather conditions. They can select from pre-defined wardrobe categories like Beach/Summer, Business Travel, Adventure/Outdoor, or Winter Travel to see recommended clothing items with quantities and essential status. They review suggested items and their importance levels to help create their own packing checklist based on their destination's weather and planned activities. \\
+\textbf{Why:} To understand what clothing to pack for different types of trips and weather conditions, ensuring they bring appropriate items. \\
+\textbf{Context:} Done during packing preparation, typically at home a few days before departure when deciding what clothes to bring, using mobile or desktop for reference.
 
-\subsection*{Task 7 – Delete a Trip}
-\textbf{Starting point:} My Trips section \\
-\textbf{Users:} All users \\
-\textbf{What:} The user deletes a trip that is no longer needed or has already been completed.  
-The app asks for confirmation before removing it permanently. \\
-\textbf{Why:} To keep the trip list organized and remove old entries. \\
-\textbf{Context:} Short action done at home or while organizing previous travel records.
+\subsection*{Task 7 – Create and Organize Packing Lists}
+\textbf{Starting point:} Packing List interface \\
+\textbf{Users:} Organized travelers preparing for departure \\
+\textbf{What:} The user explores the Packing List tool to see different categories of items they might need for their trip. They review suggested items organized by category (clothing, electronics, toiletries, documents, etc.) and can use this as a reference to create their own packing checklist. They can see recommendations for different trip types and use the interface to help ensure they don't forget essential items. \\
+\textbf{Why:} To organize packing efficiently and ensure all necessary items are remembered for the trip. \\
+\textbf{Context:} Done in the days leading up to departure when preparing to pack, typically at home using the tool as a reference while gathering items and organizing luggage.
 
-\subsection*{Task 8 – View Saved Trips}
-\textbf{Starting point:} Dashboard or My Trips page \\
-\textbf{Users:} All users \\
-\textbf{What:} The user opens the list of all saved trips to review them.  
-Selecting a trip opens its details such as dates, notes, and activities. \\
-\textbf{Why:} To see progress, check upcoming trips, or revisit past ones. \\
-\textbf{Context:} Done casually from desktop or mobile, often while planning.
+\subsection*{Task 8 – View and Plan Daily Itinerary}
+\textbf{Starting point:} Itinerary planning interface \\
+\textbf{Users:} Travelers organizing their daily schedules \\
+\textbf{What:} The user explores the Itinerary section to see how daily schedules can be organized. They review example itineraries with different activities planned throughout the day, including meal times, sightseeing, activities, and leisure time. They can see how activities are organized by time, location, and type (food, culture, leisure, adventure) to understand how to structure their own daily plans. \\
+\textbf{Why:} To understand how to organize daily schedules effectively and see examples of well-structured itineraries for planning their own days. \\
+\textbf{Context:} Done when planning daily activities and schedules, typically at home when organizing the flow of their trip, using desktop for detailed planning or mobile for quick reference.
 
-\subsection*{Task 9 – Share a Trip}
-\textbf{Starting point:} Trip details page \\
-\textbf{Users:} Friends, families, groups \\
-\textbf{What:} The user shares the trip summary or itinerary via link, email, or messaging app.  
-The recipient can view basic trip information but cannot edit it. \\
-\textbf{Why:} To share travel ideas or coordinate with companions. \\
-\textbf{Context:} Usually done online from a mobile device.
+\subsection*{Task 9 – Calculate and Track Travel Budget}
+\textbf{Starting point:} Budget Calculator interface \\
+\textbf{Users:} Budget-conscious travelers and trip planners \\
+\textbf{What:} The user explores the Budget Calculator to understand travel costs and manage expenses. They review different budget templates (Budget Traveler, Mid-Range Explorer, Luxury Traveler) to see example cost breakdowns across categories like flights, accommodation, food, transportation, activities, and shopping. They can explore the different tabs (Overview, Expenses, Analytics, Templates) to understand how to track spending and manage budgets for different types of trips. \\
+\textbf{Why:} To understand typical travel costs and learn how to organize and track expenses for their trip planning. \\
+\textbf{Context:} Done during early planning when setting budget expectations or when trying to estimate total trip costs, typically at home using desktop for detailed budget analysis.
 
-\subsection*{Task 10 – Mark a Trip as Completed}
-\textbf{Starting point:} My Trips section \\
-\textbf{Users:} All users \\
-\textbf{What:} The user marks a finished trip as completed, which moves it from the “Upcoming” to “Past Trips” list. \\
-\textbf{Why:} To separate past experiences from future travel plans and keep data organized. \\
-\textbf{Context:} Done after returning home from the trip, on desktop or mobile.
+\subsection*{Task 10 – Convert Currency and Understand Exchange Rates}
+\textbf{Starting point:} Currency Converter interface \\
+\textbf{Users:} International travelers dealing with foreign currencies \\
+\textbf{What:} The user accesses the Currency Converter to understand exchange rates between their home currency and their destination currency. They can input amounts to see conversions and get familiar with the approximate costs of items in their destination country. This helps them understand the value of money in different currencies and plan their spending accordingly. \\
+\textbf{Why:} To understand currency exchange rates and get familiar with costs in their destination country for better budget planning and spending decisions. \\
+\textbf{Context:} Done during planning when trying to understand destination costs, or during travel when needing quick currency conversions, typically using mobile for convenience or desktop during planning sessions.
 
-\subsection*{Task 11 – Set a Reminder}
-\textbf{Starting point:} Trip details page \\
-\textbf{Users:} All users \\
-\textbf{What:} The user creates a simple reminder for a specific date or time, such as the departure day or activity start time.  
-The app sends a notification when the event is near. \\
-\textbf{Why:} To avoid missing important travel activities or departure times. \\
-\textbf{Context:} Usually set before the trip, on mobile devices.
+\subsection*{Task 11 – Access Emergency Information and Contacts}
+\textbf{Starting point:} Emergency Contacts interface \\
+\textbf{Users:} Safety-conscious travelers preparing for potential emergencies \\
+\textbf{What:} The user explores the Emergency Contacts section to understand what safety information and emergency contacts they should have available during travel. They review categories of important contacts and information they might need, such as local emergency services, embassy contacts, medical facilities, and important phone numbers. This helps them prepare their own emergency contact list and safety information. \\
+\textbf{Why:} To understand what emergency information to gather and have available for safe travel planning and preparation. \\
+\textbf{Context:} Done during trip preparation when organizing safety information, typically at home when collecting important contacts and numbers to have available during travel, using desktop or mobile for reference.
 
-\subsection*{Task 12 – Change App Settings}
-\textbf{Starting point:} Settings page \\
-\textbf{Users:} All users \\
-\textbf{What:} The user adjusts preferences such as app language, theme (light/dark), or notification options.  
-Settings are saved automatically and applied globally. \\
-\textbf{Why:} To personalize the app according to personal comfort and needs. \\
-\textbf{Context:} Done occasionally, at any time, on mobile or desktop.
+\subsection*{Task 12 – Navigate Between Different Planning Tools}
+\textbf{Starting point:} Any component interface \\
+\textbf{Users:} All users exploring the application's features \\
+\textbf{What:} The user practices navigating between different sections of the travel planning app using the navigation system. They move between the landing page, trip planner, accommodation browser, activities explorer, wardrobe planner, itinerary viewer, weather checker, currency converter, budget calculator, packing list, and emergency contacts. They explore how each tool connects to others and understand the overall workflow of trip planning using the app. \\
+\textbf{Why:} To become familiar with the app's structure and understand how different planning tools work together for comprehensive trip planning. \\
+\textbf{Context:} Done when first exploring the app or when wanting to understand all available features, typically at home using desktop or mobile to get familiar with the interface and navigation flow.
+
+% =========================
+\newpage
+\refstepcounter{section}
+\section*{Phase 5 – User Scenarios Based on Task-Centered Design}
+
+This phase applies Task-Centered User Interface Design principles (Lewis \& Rieman, 1993) to generate detailed user scenarios for selected tasks. Following Section 2.3 "Using the Tasks in Design," each scenario demonstrates how users accomplish real goals through specific interface interactions, grounded in user motivation and validated design patterns.
+
+\subsection*{Task 1: Explore Different Destinations}
+
+\textbf{Design-independent task goal:}
+The user wants to get familiar with the app's capabilities and start thinking about potential travel destinations.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User arrives at the landing page after opening the app.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees the landing page with hero section, feature cards, and navigation options
+\item User scrolls through the feature cards showing "Smart Planning," "Local Experiences," and other capabilities
+\item User clicks the "Start Your Journey" button — system navigates to the Trip Planner interface
+\item User sees the Trip Planner form with destination input field and action cards for different planning tools
+\item User explores the action cards by hovering over them — system shows hover effects and descriptions
+\item User clicks on "Check Weather" action card — system navigates to Weather component
+\item User returns to Trip Planner using navigation menu — system shows the form interface again
+\end{enumerate}
+
+\textbf{Success outcome:} User understands the app's structure and available planning tools, gaining familiarity with the interface for future use.
+
+\textbf{Error or exception case:} If navigation fails, system could show a loading state. If user clicks invalid links, system remains on current page with no action.
+
+\textbf{Design rationale:} The landing page serves as an effective entry point by showcasing capabilities without overwhelming users. The action cards provide clear pathways to different tools, supporting the task-centered principle of making system capabilities visible and accessible.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User navigates directly to Trip Planner from the navigation menu.
+
+\textbf{Alternative flow:} User begins by exploring the navigation menu to see all available sections, then visits multiple components (Weather, Activities, Accommodation) before returning to Trip Planner. This approach provides broader context about available tools before focusing on trip planning.
+
+\subsection*{Task 2: Check Weather and Plan Accordingly}
+
+\textbf{Design-independent task goal:}
+The user wants to understand weather conditions at their destination to make informed decisions about clothing and activities.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User navigates to the Weather component from Trip Planner action cards.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Weather interface with location input field and weather display tabs
+\item User clicks in the location search field — system shows placeholder text "Enter city name"
+\item User types "Paris" — system shows mock weather data for Paris with current conditions
+\item User clicks "Forecast" tab — system displays 7-day weather forecast with temperature ranges and conditions
+\item User reviews forecast showing temperatures, precipitation chances, and weather icons
+\item User clicks "Alerts" tab — system shows weather alerts and recommendations
+\item User navigates to Wardrobe Planner — system shows weather-based packing scenarios
+\end{enumerate}
+
+\textbf{Success outcome:} User understands weather patterns and can make informed decisions about packing and activity choices based on the displayed forecast information.
+
+\textbf{Error or exception case:} If location search fails, system could show default weather data. If forecast data is unavailable, system displays general weather patterns.
+
+\textbf{Design rationale:} The tabbed interface organizes weather information logically, supporting users' natural progression from current conditions to planning implications. Mock data provides realistic examples without requiring external API integration.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User accesses Weather from the main navigation menu.
+
+\textbf{Alternative flow:} User first explores different weather tabs to understand the interface structure, then searches for their specific destination. This methodical approach helps users understand all available weather information before focusing on their location.
+
+\subsection*{Task 3: Plan Trip Details Using the Trip Planner}
+
+\textbf{Design-independent task goal:}
+The user wants to organize and document their travel plans by entering destination information, dates, traveler details, and trip preferences to create a foundation for detailed trip planning.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User arrives at the Trip Planner interface after clicking "Start Your Journey" on the landing page.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees the Trip Planner header with "Trip Planning" badge and form titled "Trip Details"
+\item User clicks in the "Destination" input field (with MapPin icon) and types "Paris, France" — system shows text appearing in real-time with placeholder text clearing
+\item User clicks "Start Date" date picker field — system opens native date selector, user selects March 15, 2026
+\item User clicks "End Date" date picker field — system opens date selector, user selects March 22, 2026
+\item User clicks in "Number of Travelers" field (with Users icon) and enters "2" — system accepts numeric input
+\item User clicks "Trip Type" dropdown — system reveals five options (Leisure, Business, Adventure, Cultural, Relaxation), user selects "Cultural"
+\item User clicks in "Budget (USD)" field and enters "3500" — system displays the amount
+\item User reviews the form and scrolls down to see action cards for next planning steps
+\end{enumerate}
+
+\textbf{Success outcome:} Form displays all entered information clearly, and user can proceed to explore accommodation, activities, or other planning tools via the action cards grid.
+
+\textbf{Error or exception case:} If user enters invalid dates (end date before start date), system could highlight the error with red border and helper text. If budget is non-numeric, system shows validation message.
+
+\textbf{Design rationale:} This flow follows task-centered principles by focusing on the user's immediate goal of documenting trip basics. The form uses familiar input patterns (date pickers, dropdowns) that reduce cognitive load. Visual icons (MapPin, Users) provide immediate context, and the logical top-to-bottom flow matches how people mentally organize trip information: destination first, then dates, then details.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User navigates directly to Trip Planner from the navigation menu.
+
+\textbf{Alternative flow:} User begins by exploring the action cards first to understand available tools, then returns to fill out the planning form with more informed choices about trip type and budget based on seeing accommodation and activity options. User fills out form in different order (dates first, then destination based on seasonal considerations), achieving the same goal through a more exploratory approach.
+
+\subsection*{Task 4: Research and Browse Accommodations}
+
+\textbf{Design-independent task goal:}
+The user wants to explore accommodation options and understand pricing and amenities to help with booking decisions later.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User clicks "Find Accommodation" action card from Trip Planner.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Accommodation interface with accommodation type cards and search options
+\item User browses through accommodation cards showing hotels, resorts, and lodges
+\item User clicks on a hotel card — system expands to show detailed amenities list (WiFi, pool, breakfast, parking)
+\item User reviews pricing information and ratings displayed on each card
+\item User clicks on different accommodation types — system shows varying amenities and price ranges
+\item User compares accommodation options by scrolling through the grid layout
+\item User navigates back to Trip Planner — system returns to planning interface
+\end{enumerate}
+
+\textbf{Success outcome:} User understands different accommodation options, pricing ranges, and amenities available for their destination.
+
+\textbf{Error or exception case:} If accommodation images fail to load, system shows placeholder images. If no accommodations match criteria, system displays all available options.
+
+\textbf{Design rationale:} Card-based layout enables efficient comparison of multiple options simultaneously. Detailed amenity lists support informed decision-making about accommodation choices.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User accesses Accommodation from the main navigation menu.
+
+\textbf{Alternative flow:} User first explores all accommodation types to understand the range of options, then focuses on specific amenities that matter most for their trip type. This comprehensive approach helps users make more informed accommodation decisions.
+
+\subsection*{Task 5: Discover and Explore Activities}
+
+\textbf{Design-independent task goal:}
+The user wants to discover interesting activities and experiences available at their destination to understand options, pricing, and time commitments for different types of activities.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User clicks "Discover Activities" action card from Trip Planner or navigates directly to Activities section.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Activities header with "Activity Finder" badge and category tabs (All, Cultural, Food, Adventure)
+\item User clicks "Cultural" tab — system filters activities and displays only cultural experiences with smooth transition animation
+\item User scrolls through cultural activity cards, each showing image, title, location, duration, price, rating, and participant count
+\item User clicks on "Temple Tour with Archaeologist" activity card — system highlights the card and shows detailed description expanding
+\item User reviews activity details: "Explore ancient ruins with expert archaeologist," 4 hours duration, \$45 per person, 4.9 rating
+\item User clicks "Adventure" tab — system transitions to show adventure activities like "Sunrise Mountain Hike"
+\item User clicks on mountain hike card — system shows details: 5 hours, \$80, 4.8 rating, up to 15 people
+\item User navigates back to "All" tab to compare across categories
+\end{enumerate}
+
+\textbf{Success outcome:} User has discovered multiple activity options across categories, understands pricing structure, and can mentally plan their trip activities and budget.
+
+\textbf{Error or exception case:} If no activities exist for a category, system shows empty state with message "No activities found" and suggestion to try other categories. If images fail to load, system shows placeholder with activity title.
+
+\textbf{Design rationale:} The tabbed interface supports the user's natural browsing behavior by allowing quick category switching without losing context. Card-based layout enables efficient scanning of multiple options simultaneously. Key information (price, duration, rating) is prominently displayed for quick comparison, supporting the task-centered principle of immediate access to decision-critical information.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Alternative flow:} User begins with "All" tab to get overview of available activity types, then uses visual cues (activity images and titles) to identify interests before switching to specific category tabs. User discovery process is more visual-first rather than category-first, but achieves same understanding of available options.
+
+\subsection*{Task 6: Plan Wardrobe Using Weather Information}
+
+\textbf{Design-independent task goal:}
+The user wants to understand what clothing to pack for different types of trips and weather conditions, ensuring they bring appropriate items for their destination and planned activities.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User navigates to Wardrobe Planner from Trip Planner action cards or main navigation.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Wardrobe Planner interface with weather-based packing scenarios
+\item User clicks "Beach/Summer" scenario button — system displays summer clothing checklist with items like "Swimwear (2-3 pieces)", "Sundresses (3-4)", "Sandals (2 pairs)"
+\item System shows each item with quantity recommendation and essential status (marked with star icon for must-have items)
+\item User reviews essential items highlighted in the list: sunscreen, hat, sunglasses marked as critical
+\item User clicks "Adventure/Outdoor" scenario — system transitions to show outdoor gear list including "Hiking boots", "Waterproof jacket", "Base layers"
+\item System displays quantity recommendations and marks essential items for safety and comfort
+\item User compares scenarios to understand different packing needs for various trip types
+\item User can reference this information while packing or planning their wardrobe
+\end{enumerate}
+
+\textbf{Success outcome:} User understands what clothing types and quantities to pack for their specific trip weather and activity type, with clear guidance on essential vs. optional items.
+
+\textbf{Error or exception case:} If user's trip spans multiple weather conditions, system could suggest checking multiple scenarios. If seasonal weather data is unavailable, system defaults to general recommendations with appropriate disclaimers.
+
+\textbf{Design rationale:} Scenario-based organization matches how people think about packing — by context and weather conditions. The essential item marking addresses the core user need of not forgetting critical items. Quantity recommendations reduce decision-making overhead, following task-centered design principles of supporting user expertise rather than requiring it.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Alternative flow:} User first visits Weather component to check their destination's forecast, then navigates to Wardrobe Planner with specific weather expectations. This creates a more informed wardrobe selection process where the user cross-references actual weather data with clothing scenarios for more precise packing decisions.
+
+\subsection*{Task 7: Create and Organize Packing Lists}
+
+\textbf{Design-independent task goal:}
+The user wants to organize packing efficiently and ensure all necessary items are remembered for the trip.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User navigates to Packing List from Trip Planner action cards.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Packing List interface with category tabs and item checklists
+\item User clicks "Clothing" tab — system displays clothing items with checkboxes and quantity recommendations
+\item User checks off items they plan to pack — system shows checkmarks and updates progress indicators
+\item User clicks "Electronics" tab — system shows electronics checklist with essential items like phone charger, adapter
+\item User reviews different category tabs (Toiletries, Documents, Miscellaneous) — system shows organized item lists for each
+\item User sees progress indicators showing completion percentage for each category
+\item User can use this as a reference while physically packing their bags
+\end{enumerate}
+
+\textbf{Success outcome:} User has a comprehensive checklist of items to pack, organized by category, with progress tracking to ensure nothing is forgotten.
+
+\textbf{Error or exception case:} If user tries to check items that don't exist, system maintains current state. If progress calculation fails, system shows basic completion indicators.
+
+\textbf{Design rationale:} Category-based organization matches how people naturally think about packing. Checkboxes and progress indicators provide clear feedback on packing completion, supporting the task-centered principle of making progress visible.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User accesses Packing List from main navigation.
+
+\textbf{Alternative flow:} User first reviews all categories to get an overview of required items, then systematically works through each category checking items. This comprehensive approach ensures thorough packing preparation.
+
+\subsection*{Task 8: View and Plan Daily Itinerary}
+
+\textbf{Design-independent task goal:}
+The user wants to understand how to organize daily schedules effectively and see examples of well-structured itineraries for planning their own days.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User navigates to Itinerary from Trip Planner action cards.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Itinerary interface with day navigation and activity timeline
+\item User clicks on "Day 1" — system displays scheduled activities with times, locations, and types
+\item User reviews activity details showing breakfast at hotel, city walking tour, lunch at market, museum visit, sunset at beach
+\item User clicks on different days — system shows varying activity schedules and meal times
+\item User sees activity types color-coded (food, culture, leisure, adventure) with icons
+\item User can mentally plan their own daily schedules based on the example structure
+\item User navigates back to Trip Planner — system returns to planning interface
+\end{enumerate}
+
+\textbf{Success outcome:} User understands how to structure daily itineraries with balanced activities, meals, and leisure time.
+
+\textbf{Error or exception case:} If day navigation fails, system shows default day. If activity details are missing, system displays basic activity information.
+
+\textbf{Design rationale:} Timeline-based layout matches how people think about daily schedules. Color-coding and icons make activity types immediately recognizable, supporting efficient itinerary planning.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User accesses Itinerary from main navigation.
+
+\textbf{Alternative flow:} User explores all days first to understand the overall trip structure, then focuses on specific days for detailed planning. This approach provides context before diving into individual day planning.
+
+\subsection*{Task 9: Calculate and Track Travel Budget}
+
+\textbf{Design-independent task goal:}
+The user wants to understand typical travel costs and learn how to organize and track expenses for their trip planning and budget management.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User accesses Budget Calculator from Trip Planner action cards or navigation menu.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Budget Calculator interface with tabs: Overview, Expenses, Analytics, Templates
+\item User clicks "Templates" tab — system displays three budget template cards: Budget Traveler (\$1,350), Mid-Range Explorer (\$2,650), Luxury Traveler
+\item User clicks "Mid-Range Explorer" template card — system expands to show category breakdown: Flights \$500, Accommodation \$800, Food \& Dining \$400, etc.
+\item System displays each category with amount and visual progress bar showing proportional spending allocation
+\item User clicks "Budget Traveler" to compare — system shows lower-cost breakdown with different allocation ratios
+\item User clicks "Overview" tab — system shows budget tracking interface with categories and current spending status
+\item User reviews expense categories and understands typical cost distribution for different travel styles
+\item User can use this information to set realistic budget expectations for their trip type
+\end{enumerate}
+
+\textbf{Success outcome:} User understands typical cost ranges for different travel styles and how expenses are typically distributed across categories, enabling informed budget planning.
+
+\textbf{Error or exception case:} If template data fails to load, system shows basic category list with placeholder amounts and error message. If user tries to access advanced features without data, system guides them to start with templates.
+
+\textbf{Design rationale:} Template-first approach reduces the overwhelming nature of budget planning by providing realistic starting points. Category-based organization matches how people naturally think about travel expenses. Visual representation through progress bars and clear totals supports quick comprehension and comparison, following task-centered principles of reducing cognitive load while supporting decision-making.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Alternative flow:} User starts with "Overview" tab to understand the budget tracking interface, then navigates to "Templates" to see realistic examples. This approach suits users who prefer to understand the tool's capabilities before exploring content, achieving the same budget understanding through a more methodology-focused exploration.
+
+\subsection*{Task 10: Convert Currency and Understand Exchange Rates}
+
+\textbf{Design-independent task goal:}
+The user wants to understand currency exchange rates and get familiar with costs in their destination country for better budget planning and spending decisions.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User navigates to Currency Converter from Trip Planner action cards.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Currency Converter interface with currency selection dropdowns and conversion display
+\item User clicks "From" currency dropdown — system shows list of available currencies with flags and codes
+\item User selects "USD" — system updates the interface
+\item User clicks "To" currency dropdown — system shows destination currencies
+\item User selects "EUR" for European destination — system shows current exchange rate
+\item User enters amount "1000" in USD field — system calculates and displays equivalent in EUR
+\item User sees conversion result with current exchange rate information
+\item User can use this to understand approximate costs in destination currency
+\end{enumerate}
+
+\textbf{Success outcome:} User understands currency conversion rates and can estimate costs in their destination currency for budget planning.
+
+\textbf{Error or exception case:} If currency selection fails, system shows default currencies. If conversion calculation errors occur, system displays last known rates.
+
+\textbf{Design rationale:} Simple input-output interface matches users' mental model of currency conversion. Clear display of exchange rates supports informed financial planning decisions.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User accesses Currency Converter from main navigation.
+
+\textbf{Alternative flow:} User explores different currency pairs first to understand exchange rate variations, then focuses on their specific travel currencies. This exploratory approach helps users understand broader currency relationships.
+
+\subsection*{Task 11: Access Emergency Information and Contacts}
+
+\textbf{Design-independent task goal:}
+The user wants to understand what emergency information to gather and have available for safe travel planning and preparation.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User navigates to Emergency Contacts from Trip Planner action cards.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees Emergency Contacts interface with contact categories and emergency services
+\item User reviews emergency service cards showing phone numbers for police, fire, medical services
+\item User clicks "Add Contact" button — system shows form for adding personal emergency contacts
+\item User fills in contact details: name, relationship, phone number, email — system saves the contact
+\item User sees contact organized by category (family, medical, travel)
+\item User reviews emergency service information and important phone numbers
+\item User can reference this information for safety planning
+\end{enumerate}
+
+\textbf{Success outcome:} User has access to important emergency contacts and services information for their destination.
+
+\textbf{Error or exception case:} If contact saving fails, system shows error message. If emergency service data is unavailable, system displays general emergency guidelines.
+
+\textbf{Design rationale:} Category-based organization makes emergency information easily accessible when needed. Clear contact management supports proactive safety planning.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User accesses Emergency Contacts from main navigation.
+
+\textbf{Alternative flow:} User first reviews all emergency services to understand available resources, then adds personal contacts. This comprehensive approach ensures complete emergency preparedness.
+
+\subsection*{Task 12: Navigate Between Different Planning Tools}
+
+\textbf{Design-independent task goal:}
+The user wants to become familiar with the app's structure and understand how different planning tools work together for comprehensive trip planning.
+
+\subsubsection*{Scenario A (Design-specific)}
+
+\textbf{Starting point:} User starts at the landing page.
+
+\textbf{Step-by-step user actions and system responses:}
+\begin{enumerate}
+\item User sees landing page with navigation menu showing all available sections
+\item User clicks navigation menu — system expands to show Trip Planner, Accommodation, Activities, Weather, and other tools
+\item User clicks "Trip Planner" — system navigates to planning interface
+\item User clicks navigation again — system shows menu, user selects "Activities"
+\item User explores Activities interface, then uses navigation to visit "Weather"
+\item User continues navigating between different sections — system smoothly transitions between interfaces
+\item User returns to landing page — system shows overview of all planning capabilities
+\end{enumerate}
+
+\textbf{Success outcome:} User understands the app's navigation structure and can efficiently move between different planning tools as needed.
+
+\textbf{Error or exception case:} If navigation fails, system shows current page. If invalid navigation occurs, system remains stable on current interface.
+
+\textbf{Design rationale:} Consistent navigation menu provides predictable access to all tools. Smooth transitions between sections support efficient exploration and task switching.
+
+\subsubsection*{Scenario B (Alternative successful flow)}
+
+\textbf{Starting point:} User starts at Trip Planner.
+
+\textbf{Alternative flow:} User explores action cards within Trip Planner to navigate to different tools, then uses the navigation menu for broader exploration. This hybrid approach combines direct tool access with comprehensive navigation understanding.
 
 
 \newpage
