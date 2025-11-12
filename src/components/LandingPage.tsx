@@ -107,13 +107,6 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
               : "opacity-0 translate-y-8"
           }`}
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 backdrop-blur-xl bg-white/10 rounded-full border border-white/20 px-4 py-2 mb-8">
-            <Sparkles className="w-4 h-4 text-yellow-400" />
-            <span className="text-white/90 text-sm font-medium">
-              AI-Powered Travel Planning
-            </span>
-          </div>
 
           {/* Main heading */}
           <h1 className="text-white text-6xl md:text-8xl font-bold mb-6 leading-tight">
