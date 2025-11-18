@@ -10,6 +10,8 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{float}
 
 \definecolor{accent}{HTML}{006666}
 \hypersetup{
@@ -626,6 +628,317 @@ The user wants to become familiar with the app's structure and understand how di
 
 
 \newpage
-\begin{thebibliography}{9} \bibitem{nielsen1994usability} J. Nielsen, \textit{Usability Engineering}. Academic Press, 1994. \bibitem{iso9241} International Organization for Standardization, \textit{ISO 9241-210:2019 Ergonomics of Human-System Interaction — Human-centred Design for Interactive Systems}, 2019. \bibitem{card1983psychology} S. Card, T. Moran, A. Newell, \textit{The Psychology of Human-Computer Interaction}. Erlbaum Associates, 1983. \end{thebibliography}
+\refstepcounter{section}
+\section*{Phase 6 – Cognitive Walkthrough Evaluation Report}
+
+This phase presents a cognitive walkthrough evaluation of the Personal Travel Assistant interface prototype, following the methodology described by Wharton et al. (1994). The evaluation examines 8 user tasks from Phase 3, stepping through the scenarios defined in Phase 5. At each step, we analyze five critical questions to identify potential usability issues and validate design decisions.
+
+\subsection*{Task 1: Plan Trip Details Using the Trip Planner}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/home-page.png}
+    \caption{Home page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/trip-form.png}
+    \caption{Trip Planner page}
+\end{figure}
+
+\textbf{Starting point:} The user accesses the landing page or navigates to the Trip Planner. The interface clearly presents the main entry points for trip planning, including buttons like "Start Your Journey" and visible action cards for accommodation and activities.
+
+\textbf{Action: User begins entering trip details}  
+The user fills in the form fields (Destination, Start Date, End Date, etc.). As they type or select values, the system clears placeholders and immediately shows their input, providing real-time feedback. Icons and labels clearly indicate the purpose of each field.
+
+\textbf{Cognitive Walkthrough Questions:}
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user’s goal is to start planning their trip, and the “Trip Details” heading clearly signals that filling in the form is the correct first step.
+    \item \textbf{Will the user see the correct control?} - Yes, the input fields (Destination with MapPin icon, Start and End Dates with calendar icons, etc.) are prominent at the top of the page, making the intended controls highly visible.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, standard affordances (text boxes, date pickers, dropdowns) make the effect of interacting with each field immediately clear.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Possibly, the action cards on the right are visible, but they serve different purposes and are visually secondary, so confusion is unlikely.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the system provides direct feedback—typed text appears, date pickers open, and the “Generate Trip Plan” button clearly indicates the next step.
+\end{enumerate}
+
+
+\subsection*{Task 2: Research and Plan Accommodations}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/accommodations.png}
+    \caption{Accommodations page}
+    \label{fig:unique-label}
+\end{figure}
+
+\textbf{Starting point:} User clicks "Find Accommodation" from the Trip Planner.
+
+\textbf{Action: User explores accommodation cards}  
+The user browses the grid of hotel, resort, and lodge cards. The system displays each card with image, name, price, rating, and basic amenities. Selecting a card expands it to show more details. Filters and category tabs are visible but secondary.
+
+\textbf{Cognitive Walkthrough Questions:}
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user wants to explore lodging options and compare amenities.
+    \item \textbf{Will the user see the correct control?} - Yes, the cards are visually prominent and clearly clickable.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, clicking a card expands details, confirming the interaction works.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Possibly, filters or tabs, but they support secondary actions and do not compete visually with the main cards.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, expanded details (amenities, pricing, ratings) appear immediately, confirming the action was successful.
+\end{enumerate}
+
+
+\subsection*{Task 3: Discover and Explore Activities}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/activities.png}
+    \caption{Activities page}
+    \label{fig:unique-label}
+\end{figure}
+
+\textbf{Starting point:} User clicks "Discover Activities" from the Trip Planner or opens the Activities section from navigation.
+
+\textbf{User Action: Exploring Activities}  
+The user browses activity cards and interacts with category tabs (e.g., Cultural, Adventure, Food). Clicking a tab filters the activities instantly, and selecting an activity card expands it to show detailed information such as duration, price, location, and rating. Other tabs and cards are visible but do not compete with the main browsing task.
+
+\textbf{Cognitive Walkthrough Questions:}
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user intends to discover available activities, so interacting with tabs and cards directly supports this goal.
+    \item \textbf{Will the user see the correct control?} - Yes, the category tabs are clearly placed at the top and the activity cards occupy the main content area, making them easy to notice and understand.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, filtered activity lists appear immediately when tabs are clicked, and the card expansion visually communicates success.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - No, while other tabs exist, they support optional categories and do not conflict with the user’s primary task of browsing activities.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the interface updates instantly with filtered results and expanded details, clearly indicating the effect of the user’s actions.
+\end{enumerate}
+
+
+\subsection*{Task 4: Plan Wardrobe Using Weather Information}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/wardrobe.png}
+    \caption{Wardrobe Planner page}
+    \label{fig:unique-label}
+\end{figure}
+
+\textbf{Starting point:}: User opens the "Wardrobe Planner" from either the Trip Planner action cards or the main navigation.
+
+\textbf{User Action: Selecting Packing Scenarios}  
+The user selects a scenario button (e.g., Beach/Summer, Adventure/Outdoor) to see recommended clothing for the trip type and weather. The system displays a checklist with item quantities and highlights essential items. Other scenario buttons are visible but do not interfere with the selected scenario, allowing the user to easily explore multiple packing contexts.
+
+\textbf{Cognitive Walkthrough Questions:}
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user intends to determine what to pack, so choosing a scenario and viewing its checklist aligns perfectly with this goal.
+    \item \textbf{Will the user see the correct control?} - Yes, scenario buttons are prominent, clearly labeled, and located at the top of the interface, making them easy to identify.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, clicking a scenario updates the displayed checklist immediately, clearly signaling the effect of the action.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Not likely; other scenario buttons represent alternative contexts but do not distract from the current selection.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the checklist with item quantities and essential markers appears instantly, making it clear that the selection was successful and guiding further packing decisions.
+\end{enumerate}
+
+
+\subsection*{Task 5: Create and Organize Packing Lists}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/packing-list1.png}
+    \caption{Packing List overview with category tabs}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/packing-list2.png}
+    \caption{Packing List with checked items and progress indicators}
+\end{figure}
+
+\textbf{Starting point:} User navigates to Packing List from Trip Planner action cards.
+
+\textbf{User Action: Organizing and Tracking Items}  
+The user selects a category tab (e.g., Clothing, Electronics, Toiletries) and checks off items as they plan their packing. Progress indicators update to show completion percentage for each category. Users can navigate across tabs to compare categories or review items before packing.
+
+\textbf{Cognitive Walkthrough Questions:}
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user’s goal is to organize packing efficiently and ensure nothing is forgotten, so checking off items and reviewing categories directly supports this goal.
+    \item \textbf{Will the user see the correct control?} - Yes, the category tabs and checklists are prominent, clearly labeled, and positioned at the top and main area of the interface.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, checking an item immediately shows a checkmark and updates the progress indicator, providing clear visual feedback.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Unlikely, while navigation or other options exist, they do not interfere with the main task of checking items and tracking progress.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the combination of checkmarks and progress bars clearly indicates which items have been completed and what remains, guiding the user through the packing process.
+\end{enumerate}
+
+
+\subsection*{Task 6: View and Plan Daily Itinerary}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/wardrobe.png}
+    \caption{Home page}
+    \label{fig:unique-label}
+\end{figure}
+
+\textbf{Starting point:} User opens the "Wardrobe Planner" from either the Trip Planner action cards or the main navigation.
+
+\textbf{Step 1: View itinerary overview}  
+The user sees the Itinerary interface with day navigation tabs and an activity timeline.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user wants to plan daily schedules, so viewing the interface matches their goal.
+    \item \textbf{Will the user see the correct control?} - Yes, day tabs and timelines are prominent at the top and center of the interface.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, selecting a day immediately updates the timeline with activities.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Unlikely; other options (e.g., navigation links) support different tasks and do not interfere.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, activity times, locations, and types appear clearly on the timeline after selecting a day.
+\end{enumerate}
+
+\textbf{Step 2: Review daily activities}  
+The user clicks on individual day tabs (e.g., "Day 1") and examines scheduled activities such as breakfast, city tour, lunch, museum visit, and sunset at the beach.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user is trying to understand the planned schedule for that day.
+    \item \textbf{Will the user see the correct control?} - Yes, the timeline clearly lists each activity in chronological order.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, selecting a day immediately displays all activities and details.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Minimal chance; the timeline and day tabs are clearly associated with viewing the itinerary.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the timeline visually represents activity order and type, confirming the schedule.
+\end{enumerate}
+
+\textbf{Step 3: Compare days and plan own schedule}  
+The user clicks other day tabs to see different schedules and uses the color-coded activity types and icons to mentally plan their own daily activities.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, comparing days supports planning their personalized itinerary.
+    \item \textbf{Will the user see the correct control?} - Yes, day tabs and colored icons make each day’s schedule visible and distinguishable.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, selecting different days immediately updates the activity timeline.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - No; alternate navigation does not interfere with this task.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the timeline and icons provide clear feedback on the schedule for each day.
+\end{enumerate}
+
+
+\subsection*{Task 7: Calculate and Track Travel Budget}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/budget.png}
+    \caption{Budget Calculator interface with tabs and template cards}
+\end{figure}
+
+\textbf{Starting point:} User accesses the "Budget Calculator" from Trip Planner action cards or main navigation.
+
+\textbf{Step 1: View budget templates}  
+The user sees the Budget Calculator interface with tabs for Overview, Expenses, Analytics, and Templates.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user wants to explore typical travel costs, so viewing templates aligns with their goal.
+    \item \textbf{Will the user see the correct control?} - Yes, the Templates tab is clearly labeled and positioned prominently at the top of the interface.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, clicking the tab immediately displays three template cards with travel styles and total costs.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Minimal; other tabs are visible but serve different functions and do not conflict with the immediate task.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the appearance of the template cards and their cost totals clearly confirm that the tab selection succeeded.
+\end{enumerate}
+
+\textbf{Step 2: Explore a budget template}  
+The user clicks on the “Mid-Range Explorer” template card to view the category breakdown (Flights, Accommodation, Food \& Dining, etc.) with visual progress bars.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, they want to see a detailed example of budget distribution.
+    \item \textbf{Will the user see the correct control?} - Yes, the template cards are visually prominent and clearly clickable.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, clicking the card expands to show category-level amounts and visual progress bars.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Low likelihood; other templates are options, but selecting one still aligns with the user’s goal.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the expanded breakdown clearly shows proportional spending, confirming the system responded correctly.
+\end{enumerate}
+
+\textbf{Step 3: Compare templates}  
+The user clicks on “Budget Traveler” to compare with the Mid-Range Explorer template.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user wants to understand differences in typical travel costs.
+    \item \textbf{Will the user see the correct control?} - Yes, template cards are arranged for easy comparison.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, selecting another card immediately updates the category breakdown and totals.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - No; templates are the main interactive elements for this task.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, visual progress bars and updated totals confirm the action succeeded.
+\end{enumerate}
+
+\textbf{Step 4: Review budget tracking interface}  
+The user clicks the “Overview” tab to see a summary of categories and current spending status.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, they want to understand overall expense tracking for planning.
+    \item \textbf{Will the user see the correct control?} - Yes, the Overview tab is prominently displayed among other tabs.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, clicking the tab updates the interface to show category summaries and tracking indicators.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Minimal; other tabs are available but serve different purposes.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, totals, categories, and visual indicators clearly reflect current spending status.
+\end{enumerate}
+
+
+\subsection*{Task 8: Access Emergency Information and Contacts}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/emergency.png}
+    \caption{Emergency Contacts interface with service cards and personal contact management}
+\end{figure}
+
+\textbf{Starting point:} User navigates to "Emergency Contacts" from Trip Planner action cards or main navigation.
+
+\textbf{Step 1: Review emergency service information}  
+The user sees emergency service cards (police, fire, medical) with phone numbers and contact details.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user wants to gather critical emergency information, so reviewing the service cards directly supports their goal.
+    \item \textbf{Will the user see the correct control?} - Yes, the cards are prominently displayed at the top of the interface and clearly labeled by service type.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, the visible phone numbers and labels make it immediately clear that the information is accessible.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Not likely; other controls such as adding personal contacts are secondary and do not conflict with reviewing service information.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the static display of service details provides immediate confirmation that the information is visible and available for reference.
+\end{enumerate}
+
+\textbf{Step 2: Add a personal emergency contact}  
+The user clicks the “Add Contact” button, fills in name, relationship, phone number, and email. The system saves the new contact and displays it under the appropriate category (family, medical, travel).  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user intends to include their own contacts for comprehensive emergency preparedness.
+    \item \textbf{Will the user see the correct control?} - Yes, the “Add Contact” button is visually distinct and labeled clearly at the top or in the relevant category section.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, completing the form results in the contact being added to the categorized list, confirming success.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Low likelihood; other controls may exist for navigation or viewing, but none conflict with adding a contact.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the system immediately shows the new contact in the list, providing clear visual confirmation.
+\end{enumerate}
+
+\textbf{Step 3: Reference contacts for planning}  
+The user reviews both system-provided emergency numbers and personal contacts to ensure they have all necessary information for safe travel.  
+
+\begin{enumerate}
+    \item \textbf{Will the user be trying to produce the effect?} - Yes, the user’s goal is to consolidate and understand all emergency resources.
+    \item \textbf{Will the user see the correct control?} - Yes, categorized lists and cards make browsing and referencing straightforward.
+    \item \textbf{Will the user see that the control produces the desired effect?} - Yes, the static presentation confirms all entries are visible and accessible.
+    \item \textbf{Is there another control that the user might select instead of the correct one?} - Not likely; reviewing contacts is the intended task and no other control competes with it.
+    \item \textbf{Will the user understand the feedback to proceed correctly?} - Yes, the organized layout provides immediate understanding of which contacts are available and where to find them.
+\end{enumerate}
+
+\newpage
+\section*{Outcome of the Evaluation and Planned Improvements}
+
+The cognitive walkthrough of the Personal Travel Assistant prototype demonstrates that the interface generally supports the user's intentions effectively. For the 8 core tasks analyzed, the design successfully employs standard UI patterns—such as clear input fields, card-based layouts, and immediate visual feedback.
+
+\subsection*{Summary of Findings}
+The evaluation highlighted several key strengths and a few areas for refinement:
+\begin{itemize}
+    \item \textbf{Visibility of Controls:} In almost all scenarios, the correct control (buttons, inputs, tabs) was the most prominent element on the screen, minimizing search time.
+    \item \textbf{Immediate Feedback:} The system excels at providing real-time response (e.g., progress bars, checklist updates), which answers the user's question, "Did my action work?"
+    \item \textbf{Navigation Risks:} In Task 1 (Trip Planner) and Task 7 (Budget), the presence of secondary navigation or alternative action cards creates a minor risk of distraction, though it does not strictly prevent task completion.
+\end{itemize}
+
+\subsection*{Planned Improvements}
+Based on the analysis of the cognitive walkthrough questions, the following improvements are planned to enhance usability and reduce cognitive load:
+
+\begin{enumerate}
+    \item \textbf{Strengthen Visual Hierarchy in the Trip Planner (Task 1):}
+    \textit{Issue:} The Action Cards (Accommodation, Activities) visually compete with the main Trip Details form.
+    \textit{Improvement:} Emphasize the Trip Details area with a clearer visual container (e.g., stronger contrast or subtle shadow) so users immediately understand it is the primary interaction zone. Action Cards can be slightly toned down to indicate they become relevant after the initial trip setup.
+
+    \item \textbf{Increase Discoverability of Activity Management Controls (Task 6):}  
+    \textit{Issue:} Users might not immediately notice how to add or edit activities for a specific day.  
+    \textit{Improvement:} Introduce a persistent, clearly labeled “Add Activity” button within each day’s section, ensuring users can always see the next possible action without searching the interface.
+
+\end{enumerate}
+
+
+\newpage
+\begin{thebibliography}{9} 
+\bibitem{nielsen1994usability} J. Nielsen, \textit{Usability Engineering}. Academic Press, 1994. 
+\bibitem{iso9241} International Organization for Standardization, \textit{ISO 9241-210:2019 Ergonomics of Human-System Interaction — Human-centred Design for Interactive Systems}, 2019. 
+\bibitem{card1983psychology} S. Card, T. Moran, A. Newell, \textit{The Psychology of Human-Computer Interaction}. Erlbaum Associates, 1983. 
+\bibitem{wharton1994cognitive} C. Wharton, J. Rieman, C. Lewis, P. Polson, \textit{The Cognitive Walkthrough Method: A Practitioner's Guide}. In J. Nielsen \& R. Mack (Eds.), \textit{Usability Inspection Methods}, John Wiley \& Sons, 1994.
+\end{thebibliography}
 
 \end{document}
