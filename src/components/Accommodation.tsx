@@ -8,12 +8,22 @@ import {
   ParkingSquare,
   Waves,
   Home,
+  Heart,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Navigation from "./Navigation";
+import { toast } from "sonner";
+import { useState } from "react";
+
+interface User {
+  username: string;
+  role: string;
+}
 
 interface AccommodationProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 const accommodations = [
@@ -81,10 +91,32 @@ const amenityIcons: Record<string, React.ReactNode> = {
   Spa: <Coffee className="w-4 h-4" />,
 };
 
-export default function Accommodation({ onNavigate }: AccommodationProps) {
+export default function Accommodation({ onNavigate, onLogout, user }: AccommodationProps) {
+  const [favorites, setFavorites] = useState<number[]>([]);
+
+  const handleBookNow = (placeName: string) => {
+    toast.success(`Booking initiated for ${placeName}!`, {
+      description: "Redirecting to booking page...",
+    });
+  };
+
+  const handleViewDetails = (placeName: string) => {
+    toast.info(`Loading details for ${placeName}...`);
+  };
+
+  const toggleFavorite = (placeId: number, placeName: string) => {
+    if (favorites.includes(placeId)) {
+      setFavorites(favorites.filter(id => id !== placeId));
+      toast.info(`Removed ${placeName} from favorites`);
+    } else {
+      setFavorites([...favorites, placeId]);
+      toast.success(`Added ${placeName} to favorites!`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-linear-to-br from-cyan-500 via-blue-500 to-indigo-600 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="accommodation" />
+      <Navigation onNavigate={onNavigate} currentPage="accommodation" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -168,6 +200,18 @@ export default function Accommodation({ onNavigate }: AccommodationProps) {
                 <Badge className="absolute top-4 right-4 bg-white/90 text-gray-900">
                   {place.type}
                 </Badge>
+                <button
+                  onClick={() => toggleFavorite(place.id, place.name)}
+                  className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
+                >
+                  <Heart
+                    className={`w-4 h-4 transition-colors ${
+                      favorites.includes(place.id)
+                        ? "fill-red-500 text-red-500"
+                        : "text-gray-600"
+                    }`}
+                  />
+                </button>
               </div>
 
               <div className="p-6">
@@ -212,10 +256,14 @@ export default function Accommodation({ onNavigate }: AccommodationProps) {
                 </div>
 
                 <div className="flex gap-2">
-                  <Button className="flex-1 bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
+                  <Button 
+                    onClick={() => handleBookNow(place.name)}
+                    className="flex-1 bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                  >
                     Book Now
                   </Button>
                   <Button
+                    onClick={() => handleViewDetails(place.name)}
                     variant="outline"
                     className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
                   >

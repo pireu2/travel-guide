@@ -34,8 +34,15 @@ import {
 } from "lucide-react";
 import Navigation from "./Navigation";
 
+interface User {
+  username: string;
+  role: string;
+}
+
 interface PackingListProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 interface PackingItem {
@@ -396,7 +403,7 @@ const defaultItems: PackingItem[] = [
   },
 ];
 
-export default function PackingList({ onNavigate }: PackingListProps) {
+export default function PackingList({ onNavigate, onLogout, user }: PackingListProps) {
   const [items, setItems] = useState<PackingItem[]>(defaultItems);
   const [newItem, setNewItem] = useState({
     category: "",
@@ -532,7 +539,7 @@ export default function PackingList({ onNavigate }: PackingListProps) {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-purple-400 via-violet-400 to-indigo-500 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="packing" />
+      <Navigation onNavigate={onNavigate} currentPage="packing" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

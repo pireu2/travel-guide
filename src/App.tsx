@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import LoginPage from "./components/LoginPage";
 import LandingPage from "./components/LandingPage";
 import TripPlanner from "./components/TripPlanner";
 import Accommodation from "./components/Accommodation";
@@ -10,6 +11,8 @@ import CurrencyConverter from "./components/CurrencyConverter";
 import BudgetCalculator from "./components/BudgetCalculator";
 import PackingList from "./components/PackingList";
 import EmergencyContacts from "./components/EmergencyContacts";
+import { Toaster } from "./components/ui/sonner";
+import { toast } from "sonner";
 
 type PageType =
   | "home"
@@ -24,9 +27,83 @@ type PageType =
   | "packing"
   | "emergency";
 
+interface User {
+  username: string;
+  role: string;
+}
+
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return localStorage.getItem("isAuthenticated") === "true";
+  });
+  const [user, setUser] = useState<User | null>(() => {
+    const stored = localStorage.getItem("user");
+    return stored ? JSON.parse(stored) : null;
+  });
   const [currentPage, setCurrentPage] = useState<PageType>("home");
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Check authentication status on mount
+  useEffect(() => {
+    const authStatus = localStorage.getItem("isAuthenticated") === "true";
+    const storedUser = localStorage.getItem("user");
+    setIsAuthenticated(authStatus);
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Only handle shortcuts when authenticated and not in input fields
+      if (!isAuthenticated) return;
+      const target = e.target as HTMLElement;
+      if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
+
+      // Alt + number shortcuts for navigation
+      if (e.altKey) {
+        const shortcuts: Record<string, PageType> = {
+          "1": "home",
+          "2": "planner",
+          "3": "accommodation",
+          "4": "activities",
+          "5": "itinerary",
+          "6": "weather",
+          "7": "currency",
+          "8": "budget",
+          "9": "packing",
+          "0": "emergency",
+        };
+        if (shortcuts[e.key]) {
+          e.preventDefault();
+          handleNavigate(shortcuts[e.key]);
+          toast.info(`Navigated to ${shortcuts[e.key]}`, { duration: 1500 });
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isAuthenticated]);
+
+  const handleLogin = useCallback(() => {
+    setIsAuthenticated(true);
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    toast.success("Welcome back!", { duration: 2000 });
+  }, []);
+
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("user");
+    setIsAuthenticated(false);
+    setUser(null);
+    setCurrentPage("home");
+    toast.info("You have been logged out", { duration: 2000 });
+  }, []);
 
   const handleNavigate = (page: string) => {
     if (page === currentPage) return; // Don't transition to the same page
@@ -51,37 +128,45 @@ export default function App() {
         {(() => {
           switch (currentPage) {
             case "home":
-              return <LandingPage onNavigate={handleNavigate} />;
+              return <LandingPage onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "planner":
-              return <TripPlanner onNavigate={handleNavigate} />;
+              return <TripPlanner onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "accommodation":
-              return <Accommodation onNavigate={handleNavigate} />;
+              return <Accommodation onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "activities":
-              return <Activities onNavigate={handleNavigate} />;
+              return <Activities onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "wardrobe":
-              return <WardrobePlanner onNavigate={handleNavigate} />;
+              return <WardrobePlanner onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "itinerary":
-              return <Itinerary onNavigate={handleNavigate} />;
+              return <Itinerary onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "weather":
-              return <Weather onNavigate={handleNavigate} />;
+              return <Weather onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "currency":
-              return <CurrencyConverter onNavigate={handleNavigate} />;
+              return <CurrencyConverter onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "budget":
-              return <BudgetCalculator onNavigate={handleNavigate} />;
+              return <BudgetCalculator onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "packing":
-              return <PackingList onNavigate={handleNavigate} />;
+              return <PackingList onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             case "emergency":
-              return <EmergencyContacts onNavigate={handleNavigate} />;
+              return <EmergencyContacts onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
             default:
-              return <LandingPage onNavigate={handleNavigate} />;
+              return <LandingPage onNavigate={handleNavigate} onLogout={handleLogout} user={user} />;
           }
         })()}
       </div>
     );
   };
 
+  // Show login page if not authenticated
+  if (!isAuthenticated) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
+
   return (
     <div className="size-full relative overflow-hidden">
+      {/* Toast notifications */}
+      <Toaster position="top-right" richColors closeButton />
+      
       {/* Page transition overlay */}
       {isTransitioning && (
         <div className="absolute inset-0 bg-white/10 z-50 animate-in fade-in duration-150" />

@@ -10,13 +10,22 @@ import {
   Utensils,
   Landmark,
   Mountain,
+  Heart,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Navigation from "./Navigation";
 import { createStaggeredDelays } from "../lib/animations";
+import { toast } from "sonner";
+
+interface User {
+  username: string;
+  role: string;
+}
 
 interface ActivitiesProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 const activities = [
@@ -113,7 +122,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   adventure: <Mountain className="w-4 h-4" />,
 };
 
-export default function Activities({ onNavigate }: ActivitiesProps) {
+export default function Activities({ onNavigate, onLogout, user }: ActivitiesProps) {
   const [showCards, setShowCards] = useState(false);
   const [activeTab, setActiveTab] = useState("all");
 
@@ -128,7 +137,7 @@ export default function Activities({ onNavigate }: ActivitiesProps) {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-600 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="activities" />
+      <Navigation onNavigate={onNavigate} currentPage="activities" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

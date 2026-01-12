@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Alert, AlertDescription } from "./ui/alert";
 import Navigation from "./Navigation";
+import { toast } from "sonner";
 import {
   Plus,
   Phone,
@@ -16,8 +17,15 @@ import {
   Zap,
 } from "lucide-react";
 
+interface User {
+  username: string;
+  role: string;
+}
+
 interface EmergencyContactsProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 interface Contact {
@@ -88,6 +96,8 @@ const emergencyServices: EmergencyService[] = [
 
 export default function EmergencyContacts({
   onNavigate,
+  onLogout,
+  user,
 }: EmergencyContactsProps) {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [newContact, setNewContact] = useState({
@@ -110,6 +120,7 @@ export default function EmergencyContacts({
         isFavorite: false,
       };
       setContacts([...contacts, contact]);
+      toast.success(`Added contact: ${contact.name}`);
       setNewContact({
         name: "",
         relationship: "",
@@ -119,11 +130,17 @@ export default function EmergencyContacts({
         address: "",
         notes: "",
       });
+    } else {
+      toast.error("Please fill in name and phone number");
     }
   };
 
   const removeContact = (id: string) => {
+    const contact = contacts.find(c => c.id === id);
     setContacts(contacts.filter((contact) => contact.id !== id));
+    if (contact) {
+      toast.info(`Removed contact: ${contact.name}`);
+    }
   };
 
   // Mock location sharing functionality
@@ -134,7 +151,7 @@ export default function EmergencyContacts({
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-indigo-900">
-      <Navigation onNavigate={onNavigate} currentPage="emergency" />
+      <Navigation onNavigate={onNavigate} currentPage="emergency" onLogout={onLogout} user={user} />
 
       <div className="max-w-7xl mx-auto relative z-10 pt-16 md:pt-20">
         {/* Header */}

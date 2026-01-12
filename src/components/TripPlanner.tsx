@@ -20,18 +20,43 @@ import {
   TrendingUp,
   Package,
   Shield,
+  Loader2,
 } from "lucide-react";
 import Navigation from "./Navigation";
 import { createStaggeredDelays } from "../lib/animations";
+import { toast } from "sonner";
+
+interface User {
+  username: string;
+  role: string;
+}
 
 interface TripPlannerProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
-export default function TripPlanner({ onNavigate }: TripPlannerProps) {
+export default function TripPlanner({ onNavigate, onLogout, user }: TripPlannerProps) {
   const [destination, setDestination] = useState("");
   const [tripType, setTripType] = useState("");
   const [showCards, setShowCards] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  const handleGeneratePlan = async () => {
+    if (!destination.trim()) {
+      toast.error("Please enter a destination");
+      return;
+    }
+    setIsGenerating(true);
+    toast.loading("Generating your trip plan...", { id: "generating" });
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    toast.success("Trip plan generated successfully!", { id: "generating" });
+    setIsGenerating(false);
+  };
 
   // Staggered animation delays for action cards
   const cardDelays = createStaggeredDelays(9, 100);
@@ -119,7 +144,7 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="planner" />
+      <Navigation onNavigate={onNavigate} currentPage="planner" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -254,8 +279,19 @@ export default function TripPlanner({ onNavigate }: TripPlannerProps) {
                   />
                 </div>
 
-                <Button className="w-full bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-purple-500/25">
-                  Generate Trip Plan
+                <Button 
+                  onClick={handleGeneratePlan}
+                  disabled={isGenerating}
+                  className="w-full bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                >
+                  {isGenerating ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    "Generate Trip Plan"
+                  )}
                 </Button>
               </div>
             </div>
