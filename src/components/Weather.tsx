@@ -21,9 +21,17 @@ import {
   Loader2,
 } from "lucide-react";
 import Navigation from "./Navigation";
+import { toast } from "sonner";
+
+interface User {
+  username: string;
+  role: string;
+}
 
 interface WeatherProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 interface WeatherData {
@@ -59,7 +67,7 @@ interface WeatherData {
   }>;
 }
 
-export default function Weather({ onNavigate }: WeatherProps) {
+export default function Weather({ onNavigate, onLogout, user }: WeatherProps) {
   const [location, setLocation] = useState("");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -147,12 +155,17 @@ export default function Weather({ onNavigate }: WeatherProps) {
 
   const handleGetWeather = (loc?: string) => {
     const targetLocation = loc || location;
-    if (!targetLocation.trim()) return;
+    if (!targetLocation.trim()) {
+      toast.error("Please enter a location");
+      return;
+    }
 
     setLoading(true);
+    toast.loading("Fetching weather data...", { id: "weather" });
     setTimeout(() => {
       setWeatherData({ ...mockWeatherData, location: targetLocation });
       setLoading(false);
+      toast.success(`Weather data loaded for ${targetLocation}`, { id: "weather" });
     }, 1000);
   };
 
@@ -213,7 +226,7 @@ export default function Weather({ onNavigate }: WeatherProps) {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-400 via-cyan-400 to-teal-500 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="weather" />
+      <Navigation onNavigate={onNavigate} currentPage="weather" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

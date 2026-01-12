@@ -15,11 +15,18 @@ import {
 } from "lucide-react";
 import { createStaggeredDelays } from "../lib/animations";
 
-interface LandingPageProps {
-  onNavigate: (page: string) => void;
+interface User {
+  username: string;
+  role: string;
 }
 
-export default function LandingPage({ onNavigate }: LandingPageProps) {
+interface LandingPageProps {
+  onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
+}
+
+export default function LandingPage({ onNavigate, onLogout, user }: LandingPageProps) {
   const [showContent, setShowContent] = useState(false);
   const [showFeatures, setShowFeatures] = useState(false);
 
@@ -99,6 +106,34 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12">
+        {/* User Welcome Bar */}
+        {user && (
+          <div className="fixed top-4 right-4 z-50">
+            <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-4 py-2 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                <span className="text-white font-semibold text-sm uppercase">{user.username[0]}</span>
+              </div>
+              <div className="hidden sm:block">
+                <p className="text-white/90 text-sm font-medium">Welcome, <span className="capitalize">{user.username}</span></p>
+                <p className="text-white/60 text-xs capitalize">{user.role}</p>
+              </div>
+              {onLogout && (
+                <Button
+                  onClick={onLogout}
+                  variant="ghost"
+                  size="sm"
+                  className="text-white/70 hover:text-white hover:bg-white/10 ml-2"
+                >
+                  <span className="hidden sm:inline mr-1">Logout</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                </Button>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Hero section */}
         <div
           className={`max-w-6xl w-full text-center mb-16 transition-all duration-1000 ${

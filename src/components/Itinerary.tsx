@@ -12,8 +12,15 @@ import {
 } from "lucide-react";
 import Navigation from "./Navigation";
 
+interface User {
+  username: string;
+  role: string;
+}
+
 interface ItineraryProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 const mockItinerary = [
@@ -158,12 +165,12 @@ const activityColors: Record<string, string> = {
   travel: "bg-gray-100 text-gray-700 border-gray-300",
 };
 
-export default function Itinerary({ onNavigate }: ItineraryProps) {
+export default function Itinerary({ onNavigate, onLogout, user }: ItineraryProps) {
   const [selectedDay, setSelectedDay] = useState(1);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-violet-600 via-purple-600 to-indigo-700 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="itinerary" />
+      <Navigation onNavigate={onNavigate} currentPage="itinerary" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -26,9 +26,17 @@ import {
   RefreshCw,
 } from "lucide-react";
 import Navigation from "./Navigation";
+import { toast } from "sonner";
+
+interface User {
+  username: string;
+  role: string;
+}
 
 interface CurrencyConverterProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 interface Currency {
@@ -151,6 +159,8 @@ const mockHistoricalRates: Record<string, HistoricalRate[]> = {
 
 export default function CurrencyConverter({
   onNavigate,
+  onLogout,
+  user,
 }: CurrencyConverterProps) {
   const [amount, setAmount] = useState<string>("100");
   const [fromCurrency, setFromCurrency] = useState<string>("USD");
@@ -174,13 +184,19 @@ export default function CurrencyConverter({
   const handleSwapCurrencies = () => {
     setFromCurrency(toCurrency);
     setToCurrency(fromCurrency);
+    toast.info(`Swapped: ${toCurrency} ↔ ${fromCurrency}`);
   };
 
   const toggleFavorite = (currencyCode: string) => {
+    const isCurrentlyFavorite = favorites.includes(currencyCode);
     setFavorites((prev) =>
-      prev.includes(currencyCode)
+      isCurrentlyFavorite
         ? prev.filter((c) => c !== currencyCode)
         : [...prev, currencyCode]
+    );
+    toast.success(isCurrentlyFavorite 
+      ? `Removed ${currencyCode} from favorites` 
+      : `Added ${currencyCode} to favorites`
     );
   };
 
@@ -215,7 +231,7 @@ export default function CurrencyConverter({
 
   return (
     <div className="min-h-screen bg-linear-to-br from-green-400 via-emerald-400 to-teal-500 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="currency" />
+      <Navigation onNavigate={onNavigate} currentPage="currency" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

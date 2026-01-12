@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import {
@@ -18,9 +18,17 @@ import {
   SelectValue,
 } from "./ui/select";
 import Navigation from "./Navigation";
+import { toast } from "sonner";
+
+interface User {
+  username: string;
+  role: string;
+}
 
 interface WardrobePlannerProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 const weatherConditions = [
@@ -105,7 +113,7 @@ const wardrobeItems = {
   ],
 };
 
-export default function WardrobePlanner({ onNavigate }: WardrobePlannerProps) {
+export default function WardrobePlanner({ onNavigate, onLogout, user }: WardrobePlannerProps) {
   const [selectedWeather, setSelectedWeather] = useState<string>("mild");
   const [packedItems, setPackedItems] = useState<Set<string>>(new Set());
 
@@ -113,8 +121,10 @@ export default function WardrobePlanner({ onNavigate }: WardrobePlannerProps) {
     const newPacked = new Set(packedItems);
     if (newPacked.has(item)) {
       newPacked.delete(item);
+      toast.info(`Unpacked: ${item}`);
     } else {
       newPacked.add(item);
+      toast.success(`Packed: ${item}`);
     }
     setPackedItems(newPacked);
   };
@@ -130,9 +140,18 @@ export default function WardrobePlanner({ onNavigate }: WardrobePlannerProps) {
     (i) => i.essential && packedItems.has(i.item)
   ).length;
 
+  // Show celebration when all items are packed
+  useEffect(() => {
+    if (packedCount > 0 && packedCount === currentItems.length) {
+      toast.success("🎉 All items packed! You're ready to go!", {
+        duration: 3000,
+      });
+    }
+  }, [packedCount, currentItems.length]);
+
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-500 via-red-500 to-pink-600 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="wardrobe" />
+      <Navigation onNavigate={onNavigate} currentPage="wardrobe" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

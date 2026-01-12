@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import {
@@ -29,9 +29,17 @@ import {
   Wallet,
 } from "lucide-react";
 import Navigation from "./Navigation";
+import { toast } from "sonner";
+
+interface User {
+  username: string;
+  role: string;
+}
 
 interface BudgetCalculatorProps {
   onNavigate: (page: string) => void;
+  onLogout?: () => void;
+  user?: User | null;
 }
 
 interface Expense {
@@ -108,6 +116,8 @@ const budgetTemplates: BudgetTemplate[] = [
 
 export default function BudgetCalculator({
   onNavigate,
+  onLogout,
+  user,
 }: BudgetCalculatorProps) {
   const [budget, setBudget] = useState<string>("");
   const [expenses, setExpenses] = useState<Expense[]>([]);
@@ -143,6 +153,7 @@ export default function BudgetCalculator({
         date: newExpense.date,
       };
       setExpenses([...expenses, expense]);
+      toast.success(`Added expense: ${expense.description} ($${expense.amount})`);
       setNewExpense({
         category: "",
         description: "",
@@ -150,11 +161,17 @@ export default function BudgetCalculator({
         currency: "USD",
         date: new Date().toISOString().split("T")[0],
       });
+    } else {
+      toast.error("Please fill in all expense fields");
     }
   };
 
   const removeExpense = (id: string) => {
+    const expense = expenses.find(e => e.id === id);
     setExpenses(expenses.filter((expense) => expense.id !== id));
+    if (expense) {
+      toast.info(`Removed expense: ${expense.description}`);
+    }
   };
 
   const getCategoryTotal = (category: string) => {
@@ -240,7 +257,7 @@ export default function BudgetCalculator({
 
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-400 via-red-400 to-pink-500 p-4 md:p-8 relative overflow-hidden">
-      <Navigation onNavigate={onNavigate} currentPage="budget" />
+      <Navigation onNavigate={onNavigate} currentPage="budget" onLogout={onLogout} user={user} />
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
