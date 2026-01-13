@@ -932,6 +932,186 @@ Based on the analysis of the cognitive walkthrough questions, the following impr
 
 \end{enumerate}
 
+\section{Heuristic Evaluation Report — Personal Travel Assistant}
+
+\subsection*{Document Information}
+\textbf{Date:} 2026-01-13\\
+\textbf{Basis:} Nielsen Norman Group's ``10 Usability Heuristics for User Interface Design'' and heuristic-evaluation process guidance from Interaction Design Foundation.
+
+\subsection{Purpose and Scope}
+This report evaluates the \textbf{Personal Travel Assistant} (Vite + React prototype) for alignment with \textbf{Nielsen's 10 usability heuristics}, using the 12 task scenarios provided. The analysis is grouped as requested:
+
+\begin{itemize}
+    \item Tasks 1--3: inspiration $\rightarrow$ trip setup $\rightarrow$ weather/wardrobe planning
+    \item Tasks 4--6: accommodations + activities browsing + wardrobe planning
+    \item Tasks 7--9: packing + itinerary + budgeting
+    \item Tasks 10--12: currency + emergency + navigation across tools
+\end{itemize}
+
+\subsubsection{Evidence Sources}
+Findings are grounded in the implemented UI: Landing Page, global Navigation, Trip Planner, Weather, Activities, Accommodation, Wardrobe Planner, Packing List, Itinerary, Budget Calculator, Currency Converter, and Emergency Contacts.
+
+\subsubsection{Note on Interpretation}
+Because this is a prototype, ``compliance'' is reported as \textbf{observable support} for each heuristic (i.e., the UI demonstrates the principle in the current flow). Where relevant, this report lists \textbf{small improvement opportunities} without focusing heavily on problems.
+
+\subsection{Heuristics Used}
+\begin{enumerate}
+    \item Visibility of system status
+    \item Match between system and the real world
+    \item User control and freedom
+    \item Consistency and standards
+    \item Error prevention
+    \item Recognition rather than recall
+    \item Flexibility and efficiency of use
+    \item Aesthetic and minimalist design
+    \item Help users recognize, diagnose, and recover from errors
+    \item Help and documentation
+\end{enumerate}
+
+\subsection{Tasks 1--3 (Explore destinations; weather planning; trip details)}
+\textbf{Task 1 – Explore Different Destinations} (Landing $\rightarrow$ Trip Planner $\rightarrow$ Weather/Activities)\\
+\textbf{Task 2 – Check Weather and Plan Accordingly} (Weather $\rightarrow$ Wardrobe Planner)\\
+\textbf{Task 3 – Plan Trip Details Using the Trip Planner} (Trip Planner form + action cards)
+
+\subsubsection{Compliance Mapping (evidence for all 10 heuristics)}
+\begin{itemize}
+    \item \textbf{H1:} Loading states and toasts communicate progress and results (Trip Planner generation; Weather fetching; navigation shortcut feedback).
+    \item \textbf{H2:} Travel-specific, user-friendly language and familiar input types (destination field, date pickers, travelers, budget; forecast and alerts).
+    \item \textbf{H3:} Persistent navigation enables quick exit from any screen; reversible interactions (e.g., temperature unit toggle, favorites, changing trip type).
+    \item \textbf{H4:} Consistent page structure (header + description + badge), shared components, and repeated interaction patterns (tabs, cards, buttons).
+    \item \textbf{H5:} Basic prevention exists via constraints and required checks (cannot generate plan without destination; travelers has minimum; Weather blocks empty searches).
+    \item \textbf{H6:} Recognition is supported via visible global navigation, ``Quick Access'' tiles, and action cards that expose available tools.
+    \item \textbf{H7:}  Favorites in Weather for fast re-checking.
+    \item \textbf{H8:} Key information is grouped and staged (tabs for Weather; clear visual hierarchy).
+    \item \textbf{H9:} Plain-language feedback for common errors (e.g., ``Please enter a destination/location'') and clear success confirmations.
+    \item \textbf{H10:} Embedded guidance exists in-context (tooltips for shortcuts; placeholder examples like ``Tokyo, Japan''), helping users without requiring external documentation.
+\end{itemize}
+
+\subsubsection{Specific Examples from Tasks 1--3}
+\begin{itemize}
+    \item Landing ``Quick Access'' tiles reduce feature discovery effort.
+    \item Trip Planner provides a structured, top-to-bottom form reflecting how people plan trips.
+    \item Weather tabs (``Current / Forecast / Alerts'') match users' decision flow: check now $\rightarrow$ check later $\rightarrow$ consider risk.
+\end{itemize}
+
+\subsubsection{Improvement Opportunities (kept brief)}
+\begin{itemize}
+    \item Add stronger inline validation for dates/budget to improve \textbf{H5/H9}.
+    \item Add a small, persistent Help/Shortcuts entry point to strengthen \textbf{H10}.
+\end{itemize}
+
+\subsection{Tasks 4--6 (Accommodations; activities; wardrobe)}
+\textbf{Task 4 – Research and Browse Accommodations} (filters + cards + details dialog)\\
+\textbf{Task 5 – Discover and Explore Activities} (category tabs + activity cards)\\
+\textbf{Task 6 – Plan Wardrobe Using Weather Information} (scenario selection + checklist)
+
+\subsubsection{Compliance Mapping (evidence for all 10 heuristics)}
+\begin{itemize}
+    \item \textbf{H1:} Filters/tabs update content immediately; dialogs clearly change state; wardrobe progress bars show completion.
+    \item \textbf{H2:} UI uses real-world concepts: lodging types, amenities, per-night pricing, ratings; activities show duration, location, participants.
+    \item \textbf{H3:} Users can change filters/tabs at any time; wardrobe items can be toggled on/off; dialogs can be closed to return to browsing.
+    \item \textbf{H4:} Consistent card layouts and badge styling across lists; tab patterns in Activities match other parts of the app.
+    \item \textbf{H5:} Wardrobe reduces packing mistakes via essential tags and progress tracking; filters reduce the chance of scanning irrelevant options.
+    \item \textbf{H6:} Category tabs and visible filters make options recognizable (no need to remember categories).
+    \item \textbf{H7:} Fast browsing through tabs and filters supports both casual exploration and targeted searching.
+    \item \textbf{H8:} Progressive disclosure keeps pages scannable (summary cards + detail dialogs) and avoids overwhelming users with all details at once.
+    \item \textbf{H9:} Clear, non-technical confirmations in wardrobe (packed/unpacked) help users stay oriented.
+    \item \textbf{H10:} Wardrobe tips provide task-focused guidance (``pack versatile items'', ``check local dress codes''), supporting novice users.
+\end{itemize}
+
+\subsubsection{Specific Examples from Tasks 4--6}
+\begin{itemize}
+    \item Accommodation filter badges provide quick narrowing by type.
+    \item Activities cards surface decision-critical info (price, duration, rating) for efficient comparison.
+    \item Wardrobe essentials vs. optional items helps users prioritize.
+\end{itemize}
+
+\subsubsection{Improvement Opportunities}
+\begin{itemize}
+    \item Clarify the meaning/next step of ``Book'' CTAs (planning shortlist vs. real booking) to reinforce \textbf{H1/H4}.
+    \item Add ``save/favorite'' shortlists for accommodations/activities to strengthen \textbf{H6/H7}.
+\end{itemize}
+
+\subsection{Tasks 7--9 (Packing list; itinerary; budget)}
+\textbf{Task 7 – Create and Organize Packing Lists} (categories, templates, progress, export)\\
+\textbf{Task 8 – View and Plan Daily Itinerary} (day selector + timeline)\\
+\textbf{Task 9 – Calculate and Track Travel Budget} (tabs, templates, expense entry, export)
+
+\subsubsection{Compliance Mapping (evidence for all 10 heuristics)}
+\begin{itemize}
+    \item \textbf{H1:} Packing and budget surfaces progress/status clearly (completion \%, budget used, remaining budget) and supports exporting outputs.
+    \item \textbf{H2:} Uses familiar organizational models (packing categories, itinerary days/times, budget categories like flights/accommodation/food).
+    \item \textbf{H3:} Users can check/uncheck items, switch tabs freely, and remove entries (control over their data).
+    \item \textbf{H4:} Repeated tab structures across tools; consistent use of cards, badges, and primary/secondary buttons.
+    \item \textbf{H5:} Templates prevent omissions and support good defaults (packing templates; budget templates).
+    \item \textbf{H6:} Checklists and templates minimize memory load; itinerary uses visual cues and ordering to support recognition.
+    \item \textbf{H7:} Power features improve efficiency: templates, search/filtering (packing), analytics (budget), and exports.
+    \item \textbf{H8:} Information is chunked into manageable sections using tabs and cards, preserving readability despite feature richness.
+    \item \textbf{H9:} Plain-language feedback for missing required expense fields supports quick correction.
+    \item \textbf{H10:} Template descriptions act as lightweight documentation (``Weekend Getaway'', ``Business Trip''), helping users choose an appropriate starting point.
+\end{itemize}
+
+\subsubsection{Specific Examples from Tasks 7--9}
+\begin{itemize}
+    \item Packing export supports real-world follow-through (a list the user can use while packing).
+    \item Itinerary timeline mirrors how people think about days (time-ordered, labeled activity types).
+    \item Budget templates provide an immediate mental model of typical cost breakdown.
+\end{itemize}
+
+\subsubsection{Improvement Opportunities}
+\begin{itemize}
+    \item Add undo/confirm for deletions to strengthen \textbf{H3/H9}.
+    \item Add short inline explanations for analytics/export to strengthen \textbf{H10}.
+\end{itemize}
+
+\subsection{Tasks 10--12 (Currency; emergency; navigation)}
+\textbf{Task 10 – Convert Currency and Understand Exchange Rates} (tabs + favorites + swap)\\
+\textbf{Task 11 – Access Emergency Information and Contacts} (services + personal contacts + share location)\\
+\textbf{Task 12 – Navigate Between Different Planning Tools} (global navigation + shortcuts)
+
+\subsubsection{Compliance Mapping (evidence for all 10 heuristics)}
+\begin{itemize}
+    \item \textbf{H1:} Currency conversion updates immediately; swap/favorite actions show feedback; emergency actions show confirmation (alerts/toasts).
+    \item \textbf{H2:} Uses real-world terms and representations (currency codes/symbols, exchange rates; emergency numbers and contact fields).
+    \item \textbf{H3:} Swapping currencies is reversible; navigation provides an always-available exit; users can add/remove/manage contacts.
+    \item \textbf{H4:} Global navigation and shared layout patterns are consistent across all tools, supporting learnability.
+    \item \textbf{H5:} Required fields prevent incomplete emergency contacts; constrained selection lists (currency pickers) reduce input errors.
+    \item \textbf{H6:} Favorites and visible navigation prevent ``where was that tool?'' recall; repeated icons/labels support recognition.
+    \item \textbf{H7:} Keyboard shortcuts accelerate navigation; favorites speed repeat conversion checks.
+    \item \textbf{H8:} Critical information is clearly surfaced (conversion result; emergency services cards) without requiring deep navigation.
+    \item \textbf{H9:} Plain-language errors and feedback are used for missing required fields and user actions.
+    \item \textbf{H10:} In-context hints exist (tooltips/labels; emergency ``Travel Tip'' guidance) and can be consolidated into a single Help surface.
+\end{itemize}
+
+\subsubsection{Specific Examples from Tasks 10--12}
+\begin{itemize}
+    \item Currency ``swap'' supports quick exploration of rates without reselecting values.
+    \item Emergency services are immediately visible and grouped.
+    \item Desktop navigation includes shortcut hints; mobile navigation remains present for quick switching.
+\end{itemize}
+
+\subsubsection{Improvement Opportunities}
+\begin{itemize}
+    \item Add an optional reduced-motion ``focus mode'' for Emergency to further strengthen \textbf{H8}.
+    \item Add shared ``trip context'' defaults (destination/dates) to strengthen \textbf{H6/H7}.
+\end{itemize}
+
+\subsection{Short Outcome Summary}
+Overall, the prototype demonstrates broad alignment with the 10 heuristics, especially in:
+
+\begin{itemize}
+    \item \textbf{Visibility and feedback (H1):} frequent status cues (toasts, progress, disabled states)
+    \item \textbf{Consistency (H4):} repeated page structure and navigation model
+    \item \textbf{Recognition + efficiency (H6/H7):} visible tools, templates, tabs, favorites, shortcuts
+\end{itemize}
+
+Planned, low-risk refinements (validation, undo, and a small Help surface) will further strengthen the experience while keeping the interface clean and learnable.
+
+\subsection{References}
+\begin{itemize}
+    \item Nielsen Norman Group — 10 Usability Heuristics for User Interface Design: \url{https://www.nngroup.com/articles/ten-usability-heuristics/}
+    \item Interaction Design Foundation — Heuristic Evaluation: How to Conduct a Heuristic Evaluation: \url{https://www.interaction-design.org/literature/article/heuristic-evaluation-how-to-conduct-a-heuristic-evaluation}
+\end{itemize}
 
 \newpage
 \begin{thebibliography}{9} 
